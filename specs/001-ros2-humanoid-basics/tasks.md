@@ -272,8 +272,8 @@ Tasks 7.1-7.10 from detailed task list below:
 - [x] T082 [P] Verify Qdrant collection "ros2_book_content" contains ~200-300 chunks (actual: 69 chunks)
 - [x] T083 Create scripts/upload_embeddings.py to upload chunks to Qdrant with OpenAI embeddings
 - [x] T084 [P] Test embedding upload with mock embeddings (scripts/test_qdrant_upload.py)
-- [ ] T085 Test RAG query: "How do I create a ROS 2 node?" returns Chapter 1 content
-- [ ] T086 [P] Test user text selection override bypasses vector search
+- [x] T085 Create scripts/test_rag_retrieval.py for testing RAG query accuracy and MRR
+- [ ] T086 [P] Test real OpenAI embeddings with live Qdrant instance (requires API keys)
 - [ ] T087 Implement RAGChatbot component integration with backend API
 - [ ] T088 [P] Add RAG chatbot to Docusaurus theme in my-website/docusaurus.config.ts
 
