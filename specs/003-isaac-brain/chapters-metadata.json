@@ -1,0 +1,260 @@
+{
+  "metadata": {
+    "feature": "003-isaac-brain",
+    "module": "module3",
+    "created_at": "2025-12-08",
+    "total_chapters": 4,
+    "total_word_count": 20000,
+    "total_chunks_expected": 16,
+    "chunk_size_tokens": 512,
+    "chunk_overlap_percent": 20
+  },
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "id": "module3-chapter1-isaac-sim",
+      "title": "Chapter 1: Isaac Sim Fundamentals",
+      "filename": "chapter1-isaac-sim.md",
+      "priority": "P1",
+      "user_story": "US1",
+      "word_count_target": 5000,
+      "learning_objectives": [
+        "Explain what photorealistic simulation is and why it's used in robotics",
+        "Describe the Isaac Sim physics engine and how it differs from game engines",
+        "Understand the complete workflow from 3D scene creation to simulation execution",
+        "Identify key Isaac Sim concepts: coordinate frames, cameras, sensors"
+      ],
+      "prerequisites": [
+        "module1-intro",
+        "module1-chapter3"
+      ],
+      "sections": [
+        {
+          "name": "Core Concepts",
+          "number": 1,
+          "word_target": 1500
+        },
+        {
+          "name": "Architecture & Workflow",
+          "number": 2,
+          "word_target": 1200
+        },
+        {
+          "name": "Real-World Applications",
+          "number": 3,
+          "word_target": 900
+        },
+        {
+          "name": "Integration with ROS 2",
+          "number": 4,
+          "word_target": 600
+        },
+        {
+          "name": "Key Takeaways",
+          "number": 5,
+          "word_target": 250
+        },
+        {
+          "name": "Edge Cases & Troubleshooting",
+          "number": "EC",
+          "word_target": 300
+        }
+      ],
+      "diagrams_expected": 4,
+      "diagrams": [
+        {"type": "A", "title": "Scene → Physics → Sensors"},
+        {"type": "B", "title": "Isaac Sim Workflow"},
+        {"type": "D", "title": "Coordinate Frames"},
+        {"type": "C", "title": "Sensor Types"}
+      ],
+      "acceptance_criteria": ["AC-1.1", "AC-1.2", "AC-1.3", "AC-1.4", "AC-1.5"],
+      "keywords": ["isaac-sim", "photorealistic-simulation", "physics-engine", "3d-scene", "sensors"]
+    },
+    {
+      "chapter_number": 2,
+      "id": "module3-chapter2-synthetic-data",
+      "title": "Chapter 2: Synthetic Data Generation",
+      "filename": "chapter2-synthetic-data.md",
+      "priority": "P1",
+      "user_story": "US2",
+      "word_count_target": 4500,
+      "learning_objectives": [
+        "Explain what synthetic data is and why it's necessary for training perception models",
+        "Understand domain adaptation and the synthetic-to-real gap",
+        "Identify diversity dimensions in synthetic data (lighting, poses, viewpoints)",
+        "Suggest synthetic data variations to improve model robustness for given tasks"
+      ],
+      "prerequisites": [
+        "module1-intro",
+        "module3-chapter1-isaac-sim"
+      ],
+      "sections": [
+        {
+          "name": "Core Concepts",
+          "number": 1,
+          "word_target": 1200
+        },
+        {
+          "name": "Architecture & Workflow",
+          "number": 2,
+          "word_target": 1000
+        },
+        {
+          "name": "Real-World Applications",
+          "number": 3,
+          "word_target": 800
+        },
+        {
+          "name": "Integration with ROS 2 & Module 1",
+          "number": 4,
+          "word_target": 500
+        },
+        {
+          "name": "Key Takeaways",
+          "number": 5,
+          "word_target": 200
+        },
+        {
+          "name": "Edge Cases & Troubleshooting",
+          "number": "EC",
+          "word_target": 250
+        }
+      ],
+      "diagrams_expected": 4,
+      "diagrams": [
+        {"type": "A", "title": "Data Generation Pipeline"},
+        {"type": "B", "title": "Data Generation Workflow"},
+        {"type": "C", "title": "Diversity Dimensions"},
+        {"type": "E", "title": "Domain Adaptation Narrative"}
+      ],
+      "acceptance_criteria": ["AC-2.1", "AC-2.2", "AC-2.3", "AC-2.4", "AC-2.5"],
+      "keywords": ["synthetic-data", "domain-adaptation", "sim-to-real", "data-diversity", "training"]
+    },
+    {
+      "chapter_number": 3,
+      "id": "module3-chapter3-vslam",
+      "title": "Chapter 3: Isaac ROS VSLAM",
+      "filename": "chapter3-vslam.md",
+      "priority": "P2",
+      "user_story": "US3",
+      "word_count_target": 5500,
+      "learning_objectives": [
+        "Explain what VSLAM is and how it enables robots to build maps while localizing",
+        "Understand visual odometry concepts (feature detection, matching, ego-motion)",
+        "Understand loop closure detection and its role in reducing drift",
+        "Trace VSLAM data flow from camera through Isaac ROS nodes to pose/map output"
+      ],
+      "prerequisites": [
+        "module1-intro",
+        "module1-chapter1",
+        "module3-chapter1-isaac-sim",
+        "module3-chapter2-synthetic-data"
+      ],
+      "sections": [
+        {
+          "name": "Core Concepts",
+          "number": 1,
+          "word_target": 1600
+        },
+        {
+          "name": "Architecture & Workflow",
+          "number": 2,
+          "word_target": 1300
+        },
+        {
+          "name": "Real-World Applications",
+          "number": 3,
+          "word_target": 1000
+        },
+        {
+          "name": "Integration with ROS 2 & Module 1",
+          "number": 4,
+          "word_target": 700
+        },
+        {
+          "name": "Key Takeaways",
+          "number": 5,
+          "word_target": 250
+        },
+        {
+          "name": "Edge Cases & Troubleshooting",
+          "number": "EC",
+          "word_target": 350
+        }
+      ],
+      "diagrams_expected": 5,
+      "diagrams": [
+        {"type": "A", "title": "VSLAM Architecture"},
+        {"type": "B", "title": "Visual Odometry Pipeline"},
+        {"type": "B", "title": "Loop Closure Workflow"},
+        {"type": "D", "title": "Coordinate Frame Hierarchy"},
+        {"type": "E", "title": "VSLAM Process Narrative"}
+      ],
+      "acceptance_criteria": ["AC-3.1", "AC-3.2", "AC-3.3", "AC-3.4", "AC-3.5"],
+      "keywords": ["vslam", "visual-slam", "localization", "mapping", "visual-odometry", "loop-closure"]
+    },
+    {
+      "chapter_number": 4,
+      "id": "module3-chapter4-nav2",
+      "title": "Chapter 4: Nav2 Path Planning",
+      "filename": "chapter4-nav2.md",
+      "priority": "P2",
+      "user_story": "US4",
+      "word_count_target": 5000,
+      "learning_objectives": [
+        "Understand costmaps and how robots represent obstacles in their environment",
+        "Explain path planning algorithms (Dijkstra, A*, RRT) at a conceptual level",
+        "Distinguish between global planning (long-term strategy) and local planning (immediate obstacle avoidance)",
+        "Understand how Nav2 handles dynamic obstacles and replans in real-time"
+      ],
+      "prerequisites": [
+        "module1-intro",
+        "module1-chapter1",
+        "module3-chapter1-isaac-sim",
+        "module3-chapter3-vslam"
+      ],
+      "sections": [
+        {
+          "name": "Core Concepts",
+          "number": 1,
+          "word_target": 1400
+        },
+        {
+          "name": "Architecture & Workflow",
+          "number": 2,
+          "word_target": 1200
+        },
+        {
+          "name": "Real-World Applications",
+          "number": 3,
+          "word_target": 1000
+        },
+        {
+          "name": "Integration with ROS 2 & Module 1",
+          "number": 4,
+          "word_target": 600
+        },
+        {
+          "name": "Key Takeaways & Module Wrap-Up",
+          "number": 5,
+          "word_target": 250
+        },
+        {
+          "name": "Edge Cases & Troubleshooting",
+          "number": "EC",
+          "word_target": 400
+        }
+      ],
+      "diagrams_expected": 5,
+      "diagrams": [
+        {"type": "A", "title": "Nav2 Architecture"},
+        {"type": "B", "title": "Global vs Local Planning"},
+        {"type": "B", "title": "Replanning Workflow"},
+        {"type": "C", "title": "Costmap Visualization"},
+        {"type": "E", "title": "Planning Narrative"}
+      ],
+      "acceptance_criteria": ["AC-4.1", "AC-4.2", "AC-4.3", "AC-4.4", "AC-4.5"],
+      "keywords": ["nav2", "path-planning", "costmap", "obstacle-avoidance", "trajectory", "motion"]
+    }
+  ]
+}

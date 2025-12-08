@@ -26,6 +26,21 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+
+  // Module 3: The AI-Robot Brain (NVIDIA Isaac)
+  module3Sidebar: [
+    {
+      type: 'category',
+      label: 'Module 3: The AI-Robot Brain (NVIDIA Isaac)',
+      items: [
+        'module3/intro',                      // Introduction & Learning Path
+        'module3/chapter1-isaac-sim',         // Chapter 1: Isaac Sim Fundamentals
+        'module3/chapter2-synthetic-data',    // Chapter 2: Synthetic Data Generation
+        'module3/chapter3-vslam',             // Chapter 3: Isaac ROS VSLAM
+        'module3/chapter4-nav2',              // Chapter 4: Nav2 Path Planning
+      ],
+    },
+  ],
 };
 
 export default sidebars;

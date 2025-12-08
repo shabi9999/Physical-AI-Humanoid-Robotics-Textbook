@@ -21,12 +21,12 @@
 
 **Purpose**: Initialize Docusaurus content structure for Module 3
 
-- [ ] T001 Create `my-website/docs/module3/` directory structure per implementation plan
-- [ ] T002 [P] Create `specs/003-isaac-brain/` subdirectories: `_examples/`, `_diagrams/`
-- [ ] T003 Update `my-website/sidebars.js` to add Module 3 sidebar configuration
-- [ ] T004 [P] Create chapter template file: `specs/003-isaac-brain/_examples/chapter-template.md`
-- [ ] T005 [P] Create diagram reference guide: `specs/003-isaac-brain/_diagrams/diagram-patterns.md`
-- [ ] T006 Copy `specs/003-isaac-brain/quickstart.md` to `my-website/docs/module3/intro.md` (student learning path)
+- [x] T001 Create `my-website/docs/module3/` directory structure per implementation plan
+- [x] T002 [P] Create `specs/003-isaac-brain/` subdirectories: `_examples/`, `_diagrams/`
+- [x] T003 Update `my-website/sidebars.js` to add Module 3 sidebar configuration
+- [x] T004 [P] Create chapter template file: `specs/003-isaac-brain/_examples/chapter-template.md`
+- [x] T005 [P] Create diagram reference guide: `specs/003-isaac-brain/_diagrams/diagram-patterns.md`
+- [x] T006 Copy `specs/003-isaac-brain/quickstart.md` to `my-website/docs/module3/intro.md` (student learning path)
 
 **Checkpoint**: Module 3 directory structure ready; Docusaurus sidebar updated; student guide published
 
@@ -38,10 +38,10 @@
 
 **⚠️ CRITICAL**: No chapter writing can begin until this phase is complete
 
-- [ ] T007 Create chapter metadata index: `specs/003-isaac-brain/chapters-metadata.json` with all 4 chapters' YAML frontmatter
+- [x] T007 Create chapter metadata index: `specs/003-isaac-brain/chapters-metadata.json` with all 4 chapters' YAML frontmatter
 - [ ] T008 [P] Create cross-link reference document: `specs/003-isaac-brain/module1-crosslinks.md` (maps all Module 3 → Module 1 links)
-- [ ] T009 [P] Create terminology glossary: `specs/003-isaac-brain/glossary.md` (7 key terms: photorealistic simulation, synthetic data, domain adaptation, VSLAM, costmap, path planning, trajectory following)
-- [ ] T010 [P] Create RAG chunk reference guide: `specs/003-isaac-brain/rag-chunking-guide.md` (512-token boundaries, 20% overlap rules)
+- [x] T009 [P] Create terminology glossary: `specs/003-isaac-brain/glossary.md` (7 key terms: photorealistic simulation, synthetic data, domain adaptation, VSLAM, costmap, path planning, trajectory following)
+- [x] T010 [P] Create RAG chunk reference guide: `specs/003-isaac-brain/rag-chunking-guide.md` (512-token boundaries, 20% overlap rules)
 - [ ] T011 Validate NVIDIA Isaac documentation links (Isaac Sim, Isaac ROS VSLAM, Nav2) and create `specs/003-isaac-brain/references.md`
 - [ ] T012 [P] Create acceptance criteria checklist: `specs/003-isaac-brain/validation-checklist.md` (20 AC from contracts/)
 - [ ] T013 Create `.mdx` component examples: `specs/003-isaac-brain/_examples/components.mdx` (interactive elements for chapters)
