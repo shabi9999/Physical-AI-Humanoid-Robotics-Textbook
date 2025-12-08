@@ -31,32 +31,37 @@
 
 ### Documentation Verification Tasks
 
-- [ ] **[P0.1]** [U0] Verify OpenAI Whisper capabilities against official documentation
+- [x] **[P0.1]** [U0] Verify OpenAI Whisper capabilities against official documentation
   - **File**: `specs/004-vla-pipeline/research.md` (section: Whisper Verification)
   - **Acceptance**: Document multilingual support, noise robustness, diarization; cite OpenAI docs URL
   - **Resources**: https://github.com/openai/whisper, https://openai.com/research/whisper/
+  - **Status**: ✅ COMPLETE
 
-- [ ] **[P0.2]** [U0] Verify LLM/GPT API documentation and prompting best practices
+- [x] **[P0.2]** [U0] Verify LLM/GPT API documentation and prompting best practices
   - **File**: `specs/004-vla-pipeline/research.md` (section: LLM Verification)
   - **Acceptance**: Document API capabilities, structured outputs, context windows, token costs; cite OpenAI docs
   - **Resources**: https://platform.openai.com/docs, https://github.com/openai/gpt-best-practices
+  - **Status**: ✅ COMPLETE
 
-- [ ] **[P0.3]** [U0] Verify ROS 2 Action Server documentation and lifecycle
+- [x] **[P0.3]** [U0] Verify ROS 2 Action Server documentation and lifecycle
   - **File**: `specs/004-vla-pipeline/research.md` (section: ROS 2 Verification)
   - **Acceptance**: Document goal → execute → feedback → result flow; cite ROS 2 docs
   - **Resources**: https://docs.ros.org/en/humble/Concepts/Intermediate/Tutorials/Understanding-ROS2-Actions.html
+  - **Status**: ✅ COMPLETE
 
-- [ ] **[P0.4]** [U0] Map Module 1 integration points (nodes, topics, services, Python agents)
+- [x] **[P0.4]** [U0] Map Module 1 integration points (nodes, topics, services, Python agents)
   - **File**: `specs/004-vla-pipeline/research.md` (section: Module 1 Integration)
   - **Acceptance**: List 5+ integration points (voice input nodes, ROS 2 Python agents, action clients); cite Module 1 chapters
   - **Resources**: `my-website/docs/module1/`, Module 1 spec
+  - **Status**: ✅ COMPLETE
 
-- [ ] **[P0.5]** [U0] Map Module 3 integration points (Isaac Sim, VSLAM, Nav2)
+- [x] **[P0.5]** [U0] Map Module 3 integration points (Isaac Sim, VSLAM, Nav2)
   - **File**: `specs/004-vla-pipeline/research.md` (section: Module 3 Integration)
   - **Acceptance**: List 5+ integration points (synthetic data, VSLAM localization, Nav2 path planning); cite Module 3 chapters
   - **Resources**: `my-website/docs/module3/`, Module 3 spec
+  - **Status**: ✅ COMPLETE
 
-- [ ] **[P0.6]** [U0] Identify 5 diagram types and create concrete examples per chapter
+- [x] **[P0.6]** [U0] Identify 5 diagram types and create concrete examples per chapter
   - **File**: `specs/004-vla-pipeline/research.md` (section: Diagram Strategy)
   - **Acceptance**: Define Types A-E (Architecture, Workflow, Tables, Trees, Narrative); provide 2 examples each
   - **Examples**:
@@ -65,16 +70,19 @@
     - Type C: Whisper capabilities comparison table
     - Type D: Speech recognition error decision tree
     - Type E: "Why Whisper matters" narrative explanation
+  - **Status**: ✅ COMPLETE
 
-- [ ] **[P0.7]** [U0] Verify 12 VLA terminology definitions against official sources
+- [x] **[P0.7]** [U0] Verify 12 VLA terminology definitions against official sources
   - **File**: `specs/004-vla-pipeline/research.md` (section: Terminology Verification)
   - **Acceptance**: All 12 terms (Speech Recognition, Whisper, Intent, Entity, Semantic Understanding, LLM, Prompt, Structured Plan, Action Server, Trajectory, Feedback Loop, VLA) verified with citations
   - **Terms**: From spec.md lines 158-172
+  - **Status**: ✅ COMPLETE
 
-- [ ] **[P0.8]** [U0] Identify 4+ real-world humanoid robot scenarios (household, warehouse, interactive, search & rescue)
+- [x] **[P0.8]** [U0] Identify 4+ real-world humanoid robot scenarios (household, warehouse, interactive, search & rescue)
   - **File**: `specs/004-vla-pipeline/research.md` (section: Real-World Applications)
   - **Acceptance**: 4 detailed scenarios per chapter showing voice→action flow
   - **Examples**: "Pick up the blue object on the kitchen table", "Navigate to the conference room", "Respond to voice commands"
+  - **Status**: ✅ COMPLETE
 
 **Phase 0 Gate Criteria**:
 - ✅ All documentation sources verified (Whisper, LLM, ROS 2)
