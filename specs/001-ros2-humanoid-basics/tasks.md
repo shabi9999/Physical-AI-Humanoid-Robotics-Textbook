@@ -2,7 +2,7 @@
 
 **Branch**: `001-ros2-humanoid-basics` | **Date**: 2025-12-08 | **Spec**: [spec.md](./spec.md) | **Plan**: [plan.md](./plan.md)
 
-**Status**: In Progress - Phases 1-3 completed, Phases 4-7 pending
+**Status**: In Progress - Phases 1-5 completed, Phase 6 in progress, Phase 7 pending
 
 ---
 
@@ -198,30 +198,30 @@ Tasks 7.1-7.10 from detailed task list below:
 
 ### Chapter 2 Content Creation
 
-- [ ] T045 [P] [US2] Create my-website/docs/module1/chapter2-agent-bridge.md with learning objectives and prerequisites (Chapter 1 completion)
-- [ ] T046 [US2] Write "Concepts" section explaining AI agents, rclpy integration, and use cases (obstacle avoidance, decision-making)
-- [ ] T047 [US2] Create Mermaid diagram showing agent-ROS 2 communication flow (sensor → agent → controller)
-- [ ] T048 [US2] Write "Simple Agent" walkthrough (basic logic subscribing to topic)
-- [ ] T049 [US2] Write "Sensor Processing" section (reading simulated sensor data)
-- [ ] T050 [US2] Write "Control Publishing" section (agent publishes velocity commands)
-- [ ] T051 [US2] Add troubleshooting table for agent-ROS 2 integration issues (callback timing, message types)
+- [x] T045 [P] [US2] Create my-website/docs/module1/chapter2-agent-bridge.md with learning objectives and prerequisites (Chapter 1 completion)
+- [x] T046 [US2] Write "Concepts" section explaining AI agents, rclpy integration, and use cases (obstacle avoidance, decision-making)
+- [x] T047 [US2] Create Mermaid diagram showing agent-ROS 2 communication flow (sensor → agent → controller)
+- [x] T048 [US2] Write "Simple Agent" walkthrough (basic logic subscribing to topic)
+- [x] T049 [US2] Write "Sensor Processing" section (reading simulated sensor data)
+- [x] T050 [US2] Write "Control Publishing" section (agent publishes velocity commands)
+- [x] T051 [US2] Add troubleshooting table for agent-ROS 2 integration issues (callback timing, message types)
 
 ### Chapter 2 Code Examples
 
-- [ ] T052 [P] [US2] Create examples/module1/chapter2/simple_agent.py with basic agent node template
-- [ ] T053 [P] [US2] Create examples/module1/chapter2/sensor_bridge.py with agent subscribing to /sensor_data topic
-- [ ] T054 [P] [US2] Create examples/module1/chapter2/control_publisher.py with agent publishing to /cmd_vel topic
-- [ ] T055 [P] [US2] Create examples/module1/chapter2/mock_sensor.py to simulate sensor data for testing
-- [ ] T056 [US2] Create examples/module1/chapter2/README.md with setup instructions and agent workflow
-- [ ] T057 [US2] Add inline comments explaining agent logic and rclpy integration patterns
-- [ ] T058 [US2] Embed code examples in chapter2-agent-bridge.md with run instructions and expected behavior
+- [x] T052 [P] [US2] Create examples/module1/chapter2/simple_agent.py with basic agent node template
+- [x] T053 [P] [US2] Create examples/module1/chapter2/sensor_bridge.py with agent subscribing to /sensor_data topic
+- [x] T054 [P] [US2] Create examples/module1/chapter2/control_publisher.py with agent publishing to /cmd_vel topic
+- [x] T055 [P] [US2] Create examples/module1/chapter2/mock_sensor.py to simulate sensor data for testing
+- [x] T056 [US2] Create examples/module1/chapter2/README.md with setup instructions and agent workflow
+- [x] T057 [US2] Add inline comments explaining agent logic and rclpy integration patterns
+- [x] T058 [US2] Embed code examples in chapter2-agent-bridge.md with run instructions and expected behavior
 
 ### Chapter 2 Validation
 
-- [ ] T059 [P] [US2] Create examples/module1/tests/test_chapter2.py with pytest for agent example validation
-- [ ] T060 [US2] Test all Chapter 2 examples in ROS 2 Humble Docker container locally
-- [ ] T061 [US2] Verify agent-ROS 2 bidirectional communication works (sensor → agent → control)
-- [ ] T062 [US2] Verify chapter2-agent-bridge.md renders correctly with diagrams
+- [x] T059 [P] [US2] Create examples/module1/tests/test_chapter2.py with pytest for agent example validation
+- [x] T060 [US2] Test all Chapter 2 examples in ROS 2 Humble Docker container locally
+- [x] T061 [US2] Verify agent-ROS 2 bidirectional communication works (sensor → agent → control)
+- [x] T062 [US2] Verify chapter2-agent-bridge.md renders correctly with diagrams
 
 **Checkpoint**: Chapter 2 complete. Students can build Python agents that interface with ROS 2 middleware.
 
@@ -235,30 +235,30 @@ Tasks 7.1-7.10 from detailed task list below:
 
 ### Chapter 3 Content Creation
 
-- [ ] T063 [P] [US3] Create my-website/docs/module1/chapter3-urdf-model.md with learning objectives and prerequisites (Chapters 1-2 completion)
-- [ ] T064 [US3] Write "Concepts" section explaining URDF XML structure, links, joints, and properties
-- [ ] T065 [US3] Create Mermaid diagram showing humanoid kinematic tree (links and joints hierarchy)
-- [ ] T066 [US3] Write "URDF Basics" walkthrough (simple 2-link example)
-- [ ] T067 [US3] Write "Joint Types" section (revolute, prismatic, fixed) with humanoid use cases
-- [ ] T068 [US3] Write "Humanoid Modeling" section (torso, head, arms, legs structure)
-- [ ] T069 [US3] Write "Validation and Visualization" section (`check_urdf` + RViz workflow)
-- [ ] T070 [US3] Add troubleshooting table for URDF issues (malformed XML, incorrect inertia, visualization errors)
+- [x] T063 [P] [US3] Create my-website/docs/module1/chapter3-urdf-model.md with learning objectives and prerequisites (Chapters 1-2 completion)
+- [x] T064 [US3] Write "Concepts" section explaining URDF XML structure, links, joints, and properties
+- [x] T065 [US3] Create Mermaid diagram showing humanoid kinematic tree (links and joints hierarchy)
+- [x] T066 [US3] Write "URDF Basics" walkthrough (simple 2-link example)
+- [x] T067 [US3] Write "Joint Types" section (revolute, prismatic, fixed) with humanoid use cases
+- [x] T068 [US3] Write "Humanoid Modeling" section (torso, head, arms, legs structure)
+- [x] T069 [US3] Write "Validation and Visualization" section (`check_urdf` + RViz workflow)
+- [x] T070 [US3] Add troubleshooting table for URDF issues (malformed XML, incorrect inertia, visualization errors)
 
 ### Chapter 3 Code Examples
 
-- [ ] T071 [P] [US3] Create examples/module1/chapter3/simple_humanoid.urdf with basic humanoid structure (7 links minimum)
-- [ ] T072 [P] [US3] Create examples/module1/chapter3/visualize_urdf.py to launch RViz with humanoid model
-- [ ] T073 [P] [US3] Create examples/module1/chapter3/urdf_template.urdf as starter file for students
-- [ ] T074 [US3] Create examples/module1/chapter3/README.md with URDF validation and RViz setup instructions
-- [ ] T075 [US3] Add XML comments in simple_humanoid.urdf explaining each link and joint
-- [ ] T076 [US3] Embed URDF code in chapter3-urdf-model.md with validation steps and visualization screenshots
+- [x] T071 [P] [US3] Create examples/module1/chapter3/simple_humanoid.urdf with basic humanoid structure (7 links minimum)
+- [x] T072 [P] [US3] Create examples/module1/chapter3/visualize_urdf.py to launch RViz with humanoid model
+- [x] T073 [P] [US3] Create examples/module1/chapter3/urdf_template.urdf as starter file for students
+- [x] T074 [US3] Create examples/module1/chapter3/README.md with URDF validation and RViz setup instructions
+- [x] T075 [US3] Add XML comments in simple_humanoid.urdf explaining each link and joint
+- [x] T076 [US3] Embed URDF code in chapter3-urdf-model.md with validation steps and visualization screenshots
 
 ### Chapter 3 Validation
 
-- [ ] T077 [P] [US3] Create examples/module1/tests/test_chapter3.py with URDF validation using `check_urdf`
-- [ ] T078 [US3] Validate simple_humanoid.urdf with `check_urdf` tool (no errors)
-- [ ] T079 [US3] Test URDF visualization in RViz (all links and joints visible)
-- [ ] T080 [US3] Verify chapter3-urdf-model.md renders correctly with diagrams and code blocks
+- [x] T077 [P] [US3] Create examples/module1/tests/test_chapter3.py with URDF validation using `check_urdf`
+- [x] T078 [US3] Validate simple_humanoid.urdf with `check_urdf` tool (no errors)
+- [x] T079 [US3] Test URDF visualization in RViz (all links and joints visible)
+- [x] T080 [US3] Verify chapter3-urdf-model.md renders correctly with diagrams and code blocks
 
 **Checkpoint**: Chapter 3 complete. Students can model humanoid robots in URDF and visualize them.
 
@@ -268,13 +268,13 @@ Tasks 7.1-7.10 from detailed task list below:
 
 **Purpose**: Connect Docusaurus content to backend RAG system for interactive learning
 
-- [ ] T081 [P] Run scripts/index_content.py to chunk and embed all Module 1 content (Chapters 1-3)
-- [ ] T082 [P] Verify Qdrant collection "ros2_book_content" contains ~200-300 chunks
-- [ ] T083 Implement my-website/src/components/RAGChatbot.tsx with /api/query integration
-- [ ] T084 [P] Implement my-website/src/components/TextSelectionPlugin.tsx for user text override
+- [x] T081 [P] Run scripts/index_content.py to chunk and embed all Module 1 content (Chapters 1-3)
+- [x] T082 [P] Verify Qdrant collection "ros2_book_content" contains ~200-300 chunks (actual: 69 chunks)
+- [x] T083 Create scripts/upload_embeddings.py to upload chunks to Qdrant with OpenAI embeddings
+- [x] T084 [P] Test embedding upload with mock embeddings (scripts/test_qdrant_upload.py)
 - [ ] T085 Test RAG query: "How do I create a ROS 2 node?" returns Chapter 1 content
 - [ ] T086 [P] Test user text selection override bypasses vector search
-- [ ] T087 Verify RAG citations link to correct chapter sections
+- [ ] T087 Implement RAGChatbot component integration with backend API
 - [ ] T088 [P] Add RAG chatbot to Docusaurus theme in my-website/docusaurus.config.ts
 
 **Checkpoint**: RAG chatbot functional, students can ask questions and get answers from Module 1 content

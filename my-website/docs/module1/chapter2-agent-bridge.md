@@ -36,7 +36,7 @@ In robotics, an **agent** is an autonomous decision-making entity that:
 **Key insight**: An agent is a **unit of decision-making logic**, separate from communication.
 
 ```
-[Sensor Input] ’ [Agent Logic] ’ [Control Output]
+[Sensor Input] â€™ [Agent Logic] â€™ [Control Output]
      (ROS 2)     (Python code)      (ROS 2)
 ```
 

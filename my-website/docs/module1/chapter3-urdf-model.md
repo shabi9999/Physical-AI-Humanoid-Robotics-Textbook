@@ -143,7 +143,7 @@ check_urdf simple_humanoid.urdf
 Edit joint limits in `simple_humanoid.urdf`:
 
 ```xml
-<!-- Increase shoulder range from 90° to 120° -->
+<!-- Increase shoulder range from 90Â° to 120Â° -->
 <limit lower="-2.09" upper="2.09" effort="10" velocity="1.0"/>
 ```
 
