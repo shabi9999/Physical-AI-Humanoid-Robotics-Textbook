@@ -1,29 +1,113 @@
 # Tasks: ROS 2 Fundamentals for Humanoid Robotics (Module 1)
 
-**Input**: Design documents from `/specs/001-ros2-humanoid-basics/`
-**Prerequisites**: plan.md (required), spec.md (required for user stories)
+**Branch**: `001-ros2-humanoid-basics` | **Date**: 2025-12-08 | **Spec**: [spec.md](./spec.md) | **Plan**: [plan.md](./plan.md)
 
-**Tests**: Tests are OPTIONAL for educational content. Tasks focus on creating runnable examples that students will execute, not automated test suites.
+**Status**: In Progress - Phases 1-3 completed, Phases 4-7 pending
 
-**Organization**: Tasks are grouped by user story (3 chapters) to enable independent content creation and verification.
+---
 
-## Format: `[ID] [P?] [Story] Description`
+## Overview
 
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (US1, US2, US3 for Chapters 1, 2, 3)
-- Include exact file paths in descriptions
+This document provides detailed, independently testable tasks for completing the Module 1 MVP. Each task includes:
+- **Acceptance Criteria** (testable checkpoints)
+- **Dependencies** (what must be done first)
+- **Estimated Scope** (lines of code, files, or complexity)
+- **Resources** (links, references, examples)
 
-## Path Conventions
+## Format & Organization
 
 Per plan.md project structure:
 - **Docusaurus content**: `my-website/docs/module1/`
 - **ROS 2 examples**: `examples/module1/chapter1/`, `chapter2/`, `chapter3/`
 - **Backend RAG**: `backend/src/`
+- **Tests**: `examples/module1/tests/`
 - **Scripts**: `scripts/`
 
 ---
 
-## Phase 1: Setup (Project Infrastructure)
+## Completion Status Summary
+
+### ✅ Completed (Phases 1-3)
+
+**Phase 1: Setup (11/11 tasks)** ✅ COMPLETE
+- Docusaurus project created with docs-only mode
+- FastAPI backend project structure initialized
+- GitHub Actions workflows configured for deployment and testing
+- Backend requirements.txt with all dependencies locked
+- Environment template (.env.example) created
+
+**Phase 2: Foundational (14/14 tasks)** ✅ COMPLETE
+- Docusaurus intro.md written with course overview
+- Backend RAG system fully implemented:
+  - Qdrant client for vector search
+  - Postgres async connection pool
+  - OpenAI embeddings service (text-embedding-3-small, 1536-dim)
+  - Retrieval service with cosine similarity
+  - Generation service using OpenAI Agents
+- RAG query API endpoint (`/api/query`) with rate limiting (10 q/min per user)
+- Document chunking utility (512 tokens, 20% overlap)
+- Frontend React components (RAGChatbot, TextSelectionPlugin)
+- Static assets configured for GitHub Pages
+
+**Phase 3: Chapter 1 - ROS 2 Core Concepts (19/19 tasks)** ✅ COMPLETE
+- Educational content `chapter1-ros2-core.md` with:
+  - Learning objectives and prerequisites
+  - ROS 2 concepts explained (nodes, topics, services)
+  - Mermaid architecture diagrams
+  - Inline code examples
+  - Hands-on labs and troubleshooting
+- 5 runnable ROS 2 examples:
+  - `hello_ros2.py` - minimal node
+  - `publisher.py` - topic publisher
+  - `subscriber.py` - topic subscriber
+  - `service_server.py` - service provider
+  - `service_client.py` - service client
+- Chapter 1 README.md with setup instructions
+- test_chapter1.py with 12 pytest validation tests
+- All examples properly commented and executable
+- All code committed to `001-ros2-humanoid-basics` branch
+
+**Status**: All foundational work complete. Ready to proceed with Chapters 2-3 and RAG integration.
+
+---
+
+### ⏳ Pending (Phases 4-7)
+
+**Phase 4: Chapter 2 - Agent Bridging (18 tasks)**
+Tasks 4.1-4.9 from detailed task list below:
+- Design and create agent architecture content
+- Implement 3 code examples: simple_agent.py, sensor_bridge.py, control_publisher.py
+- Create Chapter 2 content (chapter2-agent-bridge.md)
+- Tests and README
+
+**Phase 5: Chapter 3 - URDF Modeling (18 tasks)**
+Tasks 5.1-5.8 from detailed task list below:
+- Design and create URDF/humanoid modeling content
+- Implement simple_humanoid.urdf file (XML)
+- Create visualization script (visualize_urdf.py)
+- Create Chapter 3 content (chapter3-urdf-model.md)
+- Tests and README
+
+**Phase 6: RAG Integration (8 tasks)**
+Tasks 6.1-6.5 from detailed task list below:
+- Run content indexing script (chunks all 3 chapters)
+- Upload embeddings to Qdrant
+- Test retrieval accuracy
+- End-to-end RAG chatbot testing
+
+**Phase 7: Polish & Deployment (14 tasks)**
+Tasks 7.1-7.10 from detailed task list below:
+- Build validation, broken link checking, accessibility audit
+- GitHub Pages deployment
+- Backend production deployment
+- Documentation and runbooks
+- Final quality gate and MVP release
+
+---
+
+## Detailed Task Breakdown
+
+### Phase 1: Setup (Project Infrastructure)
 
 **Purpose**: Initialize Docusaurus site, backend RAG system, and repository structure
 
