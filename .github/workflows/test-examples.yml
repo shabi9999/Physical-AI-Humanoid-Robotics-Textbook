@@ -1,0 +1,54 @@
+name: Test ROS 2 Examples
+
+on:
+  push:
+    branches: [main, 001-ros2-humanoid-basics]
+    paths:
+      - 'examples/**'
+      - '.github/workflows/test-examples.yml'
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-examples:
+    runs-on: ubuntu-22.04
+    container: ros:humble
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python dependencies
+        run: |
+          apt-get update
+          apt-get install -y python3-pip
+          pip3 install pytest pyyaml
+
+      - name: Test Chapter 1 examples
+        if: always()
+        run: |
+          cd examples/module1/tests
+          if [ -f test_chapter1.py ]; then
+            pytest test_chapter1.py -v
+          else
+            echo "test_chapter1.py not yet created"
+          fi
+
+      - name: Test Chapter 2 examples
+        if: always()
+        run: |
+          cd examples/module1/tests
+          if [ -f test_chapter2.py ]; then
+            pytest test_chapter2.py -v
+          else
+            echo "test_chapter2.py not yet created"
+          fi
+
+      - name: Test Chapter 3 URDF
+        if: always()
+        run: |
+          if [ -f examples/module1/chapter3/simple_humanoid.urdf ]; then
+            apt-get install -y ros-humble-urdfdom-tools
+            check_urdf examples/module1/chapter3/simple_humanoid.urdf
+          else
+            echo "simple_humanoid.urdf not yet created"
+          fi
