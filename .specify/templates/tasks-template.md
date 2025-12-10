@@ -159,6 +159,48 @@ Examples of foundational tasks (adjust based on your project):
 
 ---
 
+## Phase QA: Quality Assurance Verification (Principle V)
+
+**Purpose**: Final verification that all QA standards from the project constitution are met
+
+**CRITICAL**: These tasks MUST complete before any feature is marked done
+
+### QA Verification Tasks
+
+- [ ] QA-LINK Audit all internal links and routing paths for correctness
+  - Verify no broken links across documentation navigation
+  - Test all sidebar links resolve to valid endpoints
+  - Confirm all cross-references point to accurate locations
+
+- [ ] QA-BUILD Verify build compilation status
+  - Run build process (`npm run build` or equivalent)
+  - Confirm zero errors and zero warnings in build output
+  - Check that all static assets generated correctly
+
+- [ ] QA-CONSOLE Check browser console for JavaScript errors
+  - Open DevTools Console tab in browser
+  - Load all pages affected by this feature
+  - Confirm console is clean (no errors, warnings acceptable if non-critical)
+
+- [ ] QA-RESPONSIVE Test responsive design across viewports
+  - Test on mobile viewport (375px width)
+  - Test on tablet viewport (768px width)
+  - Test on desktop viewport (1920px+ width)
+  - Confirm all components render correctly on all breakpoints
+
+- [ ] QA-LIGHTHOUSE Run Lighthouse audit (if applicable)
+  - Performance score ≥90
+  - Accessibility score ≥95
+  - SEO score ≥95
+  - (Skip if feature doesn't affect UI/performance)
+
+- [ ] QA-FINAL Final verification and sign-off
+  - All tasks above completed and documented
+  - Feature tested end-to-end by implementer
+  - Ready for deployment
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies

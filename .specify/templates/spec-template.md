@@ -113,3 +113,15 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+### Quality Assurance Acceptance Criteria (Principle V)
+
+All features MUST meet these non-negotiable QA standards before acceptance:
+
+- **QA-001**: Zero broken links across all documentation and navigation related to this feature
+- **QA-002**: All routing paths and internal links point to correct documentation locations
+- **QA-003**: Build compiles with zero errors and zero warnings
+- **QA-004**: Browser console shows no JavaScript errors related to this feature
+- **QA-005**: All UI components render correctly on mobile, tablet, and desktop viewports
+- **QA-006**: [If applicable] Lighthouse scores: Performance ≥90, Accessibility ≥95, SEO ≥95
+- **QA-007**: All changes verified and tested before being marked complete
