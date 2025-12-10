@@ -4,6 +4,45 @@
  * work well for content-centric websites.
  */
 
+/* Tailwind CSS directives - commented out as using Tailwind via Docusaurus */
+/*
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/
+
+/* You can override the default Infima variables here. */
+/* :root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+} */
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+/*
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+*/
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
@@ -17,7 +56,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* For readability purposes, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
@@ -27,4 +66,1084 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for module cards on homepage */
+.module-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.module-card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.module-card h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+.module-card .week-range {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.module-card .description {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.module-card .learning-outcomes {
+  font-size: 0.875rem;
+}
+
+.module-card .learning-outcomes ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+/* Homepage dashboard layout */
+.homepage-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.quick-links-sidebar {
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.quick-links-sidebar h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.quick-links-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-links-sidebar li {
+  margin-bottom: 0.75rem;
+}
+
+.quick-links-sidebar a {
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+
+.quick-links-sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Recent updates section */
+.recent-updates {
+  margin-top: 2rem;
+}
+
+.recent-updates h3 {
+  margin-bottom: 1rem;
+}
+
+.update-item {
+  padding: 1rem;
+  border-left: 3px solid var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.update-item .date {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.25rem;
+}
+
+.update-item .title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 996px) {
+  .homepage-container {
+    grid-template-columns: 1fr;
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Glossary search component */
+.glossary-search {
+  margin-bottom: 2rem;
+}
+
+.glossary-search input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+}
+
+.glossary-search input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(46, 133, 85, 0.1);
+}
+
+.glossary-results {
+  margin-top: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.glossary-result-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  cursor: pointer;
+}
+
+.glossary-result-item:hover {
+  background-color: var(--ifm-background-surface-color);
+}
+
+.glossary-result-term {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.glossary-result-definition {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Chapter Template System - Custom Components
+   Feature: 002-chapter-template-system
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Learning Objectives Component */
+.learning-objectives {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.learning-objectives h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+  font-size: 1.25rem;
+}
+
+.learning-objectives ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+.learning-objectives li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.learning-objectives li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--ifm-color-success);
+  font-weight: bold;
+}
+
+/* Dark mode adjustments for learning objectives */
+[data-theme='dark'] .learning-objectives {
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Prerequisites Component */
+.prerequisites {
+  padding: 1.5rem;
+  margin: 2rem 0 3rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.prerequisites h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  color: var(--ifm-color-content);
+}
+
+.prerequisites .estimated-time {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.prerequisites ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+.prerequisites li {
+  margin-bottom: 0.5rem;
+}
+
+.prerequisites a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.prerequisites a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode adjustments for prerequisites */
+[data-theme='dark'] .prerequisites {
+  background-color: var(--ifm-background-surface-color);
+}
+
+[data-theme='dark'] .prerequisites .estimated-time {
+  background-color: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* Key Takeaways Component */
+.key-takeaways {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  border-left: 4px solid var(--ifm-color-success);
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.key-takeaways::before {
+  content: '✓';
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--ifm-color-success);
+  vertical-align: middle;
+}
+
+.key-takeaways h3 {
+  display: inline-block;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: var(--ifm-color-success-dark);
+  vertical-align: middle;
+}
+
+.key-takeaways ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.key-takeaways li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Dark mode adjustments for key takeaways */
+[data-theme='dark'] .key-takeaways {
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Exercise Block Component */
+.exercise-block {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.exercise-block .exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.exercise-block h4 {
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--ifm-color-content);
+}
+
+.exercise-block .difficulty-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.exercise-block .problem,
+.exercise-block .hints,
+.exercise-block .solution {
+  margin-top: 1.5rem;
+}
+
+.exercise-block .problem h5,
+.exercise-block .hints h5,
+.exercise-block .solution h5 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.exercise-block .hints ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.exercise-block .hints li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.exercise-block .hints li::before {
+  content: '💡';
+  position: absolute;
+  left: 0;
+}
+
+/* Dark mode adjustments for exercise block */
+[data-theme='dark'] .exercise-block {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+/* Difficulty Badge Styles */
+.badge-beginner {
+  background-color: var(--ifm-color-success-lighter);
+  color: var(--ifm-color-success-darkest);
+}
+
+.badge-intermediate {
+  background-color: var(--ifm-color-warning-lighter);
+  color: var(--ifm-color-warning-darkest);
+}
+
+.badge-advanced {
+  background-color: var(--ifm-color-danger-lighter);
+  color: var(--ifm-color-danger-darkest);
+}
+
+/* Dark mode badge adjustments */
+[data-theme='dark'] .badge-beginner {
+  background-color: var(--ifm-color-success-darkest);
+  color: var(--ifm-color-success-lightest);
+}
+
+[data-theme='dark'] .badge-intermediate {
+  background-color: var(--ifm-color-warning-darkest);
+  color: var(--ifm-color-warning-lightest);
+}
+
+[data-theme='dark'] .badge-advanced {
+  background-color: var(--ifm-color-danger-darkest);
+  color: var(--ifm-color-danger-lightest);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .learning-objectives,
+  .prerequisites,
+  .key-takeaways,
+  .exercise-block {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .exercise-block .exercise-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Module 1 ROS 2 Chapters - Educational Components
+   Feature: 005-module-1-ros2-chapters
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ============================================================================
+   CodeExample Component
+   ============================================================================ */
+
+.code-example {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.code-example__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.code-example__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.code-example__filename,
+.code-example__title {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.code-example__badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.code-example__badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.code-example__badge--beginner {
+  background-color: #28a745;
+  color: white;
+}
+
+.code-example__badge--intermediate {
+  background-color: #ffc107;
+  color: black;
+}
+
+.code-example__badge--advanced {
+  background-color: #dc3545;
+  color: white;
+}
+
+.code-example__badge--time {
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-900);
+}
+
+.code-example__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.code-example__button {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.code-example__button:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.code-example__content {
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.code-example__content > div {
+  padding: 0.125rem 1rem;
+}
+
+.code-example__line-number {
+  display: inline-block;
+  width: 3rem;
+  text-align: right;
+  padding-right: 1rem;
+  user-select: none;
+  color: var(--ifm-color-emphasis-600);
+  opacity: 0.6;
+}
+
+.code-example__line-content {
+  display: inline-block;
+}
+
+/* Highlight lines */
+.code-example__content .highlight-line {
+  background-color: rgba(0, 174, 239, 0.15);
+  border-left: 4px solid #00aeef;
+  margin-left: -1rem;
+  padding-left: calc(1rem - 4px);
+  display: block;
+}
+
+.code-example__related {
+  padding: 0.75rem 1rem;
+  background-color: var(--ifm-color-emphasis-50);
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  font-size: 0.875rem;
+}
+
+.code-example__related strong {
+  color: var(--ifm-color-primary);
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .code-example {
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+[data-theme='dark'] .code-example__header {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .code-example__related {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* ============================================================================
+   ExerciseBlock Component (Enhanced)
+   ============================================================================ */
+
+.exercise-block {
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 8px;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: var(--ifm-color-emphasis-50);
+}
+
+.exercise-block__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exercise-block__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin: 0;
+}
+
+.exercise-block__title::before {
+  content: '🎯 ';
+}
+
+.exercise-block__meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exercise-block__badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.exercise-block__badge--beginner {
+  background-color: #28a745;
+  color: white;
+}
+
+.exercise-block__badge--intermediate {
+  background-color: #ffc107;
+  color: black;
+}
+
+.exercise-block__badge--advanced {
+  background-color: #dc3545;
+  color: white;
+}
+
+.exercise-block__badge--time,
+.exercise-block__badge--type {
+  background-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-900);
+}
+
+.exercise-block__objectives {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.exercise-block__objectives h4 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+  font-size: 1.125rem;
+}
+
+.exercise-block__objective {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+}
+
+.exercise-block__objective input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.exercise-block__objective-text {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.exercise-block__progress {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-gray-700);
+  font-weight: 600;
+}
+
+.exercise-block__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.exercise-block__button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 4px;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.exercise-block__button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.exercise-block__button--secondary {
+  background-color: white;
+  color: var(--ifm-color-primary);
+}
+
+.exercise-block__button--secondary:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary-dark);
+}
+
+.exercise-block__hints,
+.exercise-block__solution {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.exercise-block__hints {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.exercise-block__solution {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+.exercise-block__hints summary,
+.exercise-block__solution summary {
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+  padding: 0.5rem 0;
+}
+
+.exercise-block__hints ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.exercise-block__content {
+  margin-top: 1rem;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .exercise-block {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .exercise-block__objectives {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .exercise-block__hints {
+  background-color: rgba(255, 193, 7, 0.15);
+}
+
+[data-theme='dark'] .exercise-block__solution {
+  background-color: rgba(40, 167, 69, 0.15);
+}
+
+/* ============================================================================
+   ConceptCallout Component
+   ============================================================================ */
+
+.concept-callout {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid;
+  border-radius: 4px;
+}
+
+.concept-callout__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.concept-callout__icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.concept-callout__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.concept-callout__content {
+  line-height: 1.6;
+}
+
+.concept-callout__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Type-specific styles */
+.concept-callout--definition {
+  background-color: #e7f3ff;
+  border-color: #00aeef;
+}
+
+.concept-callout--definition .concept-callout__title {
+  color: #00aeef;
+}
+
+.concept-callout--concept {
+  background-color: #e6f7e6;
+  border-color: #28a745;
+}
+
+.concept-callout--concept .concept-callout__title {
+  color: #28a745;
+}
+
+.concept-callout--tip {
+  background-color: #fff9e6;
+  border-color: #ffc107;
+}
+
+.concept-callout--tip .concept-callout__title {
+  color: #856404;
+}
+
+.concept-callout--warning {
+  background-color: #fff4e6;
+  border-color: #fd7e14;
+}
+
+.concept-callout--warning .concept-callout__title {
+  color: #e65100;
+}
+
+.concept-callout--danger {
+  background-color: #ffe6e6;
+  border-color: #dc3545;
+}
+
+.concept-callout--danger .concept-callout__title {
+  color: #c82333;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .concept-callout--definition {
+  background-color: rgba(0, 174, 239, 0.1);
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .concept-callout--concept {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+[data-theme='dark'] .concept-callout--tip {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+[data-theme='dark'] .concept-callout--warning {
+  background-color: rgba(253, 126, 20, 0.1);
+}
+
+[data-theme='dark'] .concept-callout--danger {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* ============================================================================
+   AssessmentChecklist Component
+   ============================================================================ */
+
+.assessment-checklist {
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background-color: var(--ifm-color-emphasis-50);
+}
+
+.assessment-checklist__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.assessment-checklist__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.assessment-checklist__progress {
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.assessment-checklist__progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  margin: 0.5rem 0 1.5rem 0;
+  overflow: hidden;
+}
+
+.assessment-checklist__progress-fill {
+  height: 100%;
+  background-color: var(--ifm-color-primary);
+  transition: width 0.3s ease;
+}
+
+.assessment-checklist__category {
+  margin: 1.5rem 0;
+  padding: 0;
+  border: none;
+}
+
+.assessment-checklist__category legend {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.assessment-checklist__criterion {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.assessment-checklist__criterion:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.assessment-checklist__criterion input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.assessment-checklist__criterion-description {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.assessment-checklist__criterion-points {
+  color: var(--ifm-color-gray-700);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.assessment-checklist__status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.assessment-checklist__status--incomplete {
+  background-color: #fff4e6;
+  border: 1px solid #ffc107;
+  color: #856404;
+}
+
+.assessment-checklist__status--complete {
+  background-color: #d4edda;
+  border: 1px solid #28a745;
+  color: #155724;
+}
+
+.assessment-checklist__instructions {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #e7f3ff;
+  border-left: 4px solid #00aeef;
+  border-radius: 4px;
+  font-size: 0.9375rem;
+}
+
+.assessment-checklist__instructions strong {
+  color: var(--ifm-color-primary);
+}
+
+.assessment-checklist__instructions p {
+  margin: 0.5rem 0 0 0;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .assessment-checklist {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .assessment-checklist__criterion {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .assessment-checklist__criterion:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .assessment-checklist__status--incomplete {
+  background-color: rgba(255, 193, 7, 0.15);
+  border-color: #ffc107;
+  color: #ffc107;
+}
+
+[data-theme='dark'] .assessment-checklist__status--complete {
+  background-color: rgba(40, 167, 69, 0.15);
+  border-color: #28a745;
+  color: #4caf50;
+}
+
+[data-theme='dark'] .assessment-checklist__instructions {
+  background-color: rgba(0, 174, 239, 0.1);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .code-example__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exercise-block__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .assessment-checklist__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .assessment-checklist__progress {
+    text-align: left;
+  }
 }

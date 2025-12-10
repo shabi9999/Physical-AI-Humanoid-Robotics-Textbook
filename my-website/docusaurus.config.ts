@@ -24,7 +24,7 @@ const config: Config = {
   organizationName: 'Shahb', // Update with actual GitHub username
   projectName: 'hackthon_humanoid_book', // Update with actual repo name
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -72,9 +72,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'module1Sidebar',
+          sidebarId: 'docs',
           position: 'left',
-          label: 'Module 1: ROS 2 Fundamentals',
+          label: 'Course Content',
         },
         {
           href: 'https://github.com/Shahb/hackthon_humanoid_book',
@@ -91,7 +91,7 @@ const config: Config = {
           items: [
             {
               label: 'Module 1: ROS 2 Fundamentals',
-              to: '/intro',
+              to: '/',
             },
           ],
         },

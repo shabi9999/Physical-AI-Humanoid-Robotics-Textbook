@@ -23,10 +23,10 @@ Before starting Module 3, make sure you understand these concepts from Module 1:
 
 | Concept | Where to Review | Why It Matters |
 |---------|-----------------|----------------|
-| **ROS 2 Nodes** | [Module 1: Chapter 1 - ROS 2 Core Concepts](/docs/module1/chapter1-core-concepts) | Isaac ROS components are ROS 2 nodes; you'll recognize the architecture |
-| **Publish/Subscribe** | [Module 1: Chapter 1 - Topics and Subscriptions](/docs/module1/chapter1-core-concepts#topics-and-subscriptions) | VSLAM and Nav2 communicate via ROS 2 topics; you'll understand data flow |
-| **Python Agents** | [Module 1: Chapter 2 - Python Agent Bridging](/docs/module1/chapter2-agent-bridge) | Synthetic data trains agents; understanding agents helps learning objectives |
-| **URDF Models** | [Module 1: Chapter 3 - URDF Humanoid Modeling](/docs/module1/chapter3-urdf-model) | Isaac Sim simulates URDF models; you'll know what's being simulated |
+| **ROS 2 Nodes** | [Module 1: Chapter 1 - ROS 2 Core Concepts](/module1/ch1-ros2-core) | Isaac ROS components are ROS 2 nodes; you'll recognize the architecture |
+| **Publish/Subscribe** | [Module 1: Chapter 1 - Topics and Subscriptions](/module1/ch1-ros2-core#topics-and-publishsubscribe) | VSLAM and Nav2 communicate via ROS 2 topics; you'll understand data flow |
+| **Python Agents** | [Module 1: Chapter 2 - Python Agent Bridging](/module1/ch2-agent-bridge) | Synthetic data trains agents; understanding agents helps learning objectives |
+| **URDF Models** | [Module 1: Chapter 3 - URDF Humanoid Modeling](/module1/ch3-urdf-model) | Isaac Sim simulates URDF models; you'll know what's being simulated |
 
 **Don't feel pressured to review everything now!** The chapters will have links back to Module 1 concepts when needed.
 
@@ -50,7 +50,7 @@ You can explain why a robotics company would invest in photorealistic simulation
 
 **Time**: ~15 minutes | **Difficulty**: Beginner-Intermediate
 
-[Go to Chapter 1: Isaac Sim Fundamentals →](/docs/module3/chapter1-isaac-sim)
+[Go to Chapter 1: Isaac Sim Fundamentals →](/module3/ch1-isaac-sim-fundamentals)
 
 ---
 
@@ -72,7 +72,7 @@ You understand why ML teams use synthetic data and what makes a synthetic datase
 
 **Time**: ~15 minutes | **Difficulty**: Beginner-Intermediate
 
-[Go to Chapter 2: Synthetic Data Generation →](/docs/module3/chapter2-synthetic-data)
+[Go to Chapter 2: Synthetic Data Generation →](/module3/chapter2-synthetic-data)
 
 ---
 
@@ -99,7 +99,7 @@ You understand how camera-only visual perception enables robot localization in u
 
 **Time**: ~18 minutes | **Difficulty**: Intermediate
 
-[Go to Chapter 3: Isaac ROS VSLAM →](/docs/module3/chapter3-vslam)
+[Go to Chapter 3: Isaac ROS VSLAM →](/module3/chapter3-vslam)
 
 ---
 
@@ -126,7 +126,7 @@ You understand how robots autonomously plan and execute collision-free paths to 
 
 **Time**: ~15 minutes | **Difficulty**: Intermediate
 
-[Go to Chapter 4: Nav2 Path Planning →](/docs/module3/chapter4-nav2)
+[Go to Chapter 4: Nav2 Path Planning →](/module3/chapter4-nav2)
 
 ---
 
@@ -277,7 +277,7 @@ All chapters are written to be:
 - **Practical**: Real-world examples with every concept
 - **Visual**: Diagrams and ASCII descriptions to illustrate ideas
 
-If you find a passage confusing, that's feedback we want! You can [open an issue on GitHub](https://github.com/shahbazthemodern/humanoid-book/issues) to let us know.
+If you find a passage confusing, that's feedback we want! You can [open an issue on GitHub](https://github.com/Shahb/hackthon_humanoid_book/issues) to let us know.
 
 ---
 
@@ -300,7 +300,7 @@ If you find a passage confusing, that's feedback we want! You can [open an issue
 
 You've learned ROS 2 fundamentals. Now let's explore how humanoid robots **perceive, localize, and navigate the world**.
 
-**Start with Chapter 1**: [Isaac Sim Fundamentals →](/docs/module3/chapter1-isaac-sim)
+**Start with Chapter 1**: [Isaac Sim Fundamentals →](/module3/ch1-isaac-sim-fundamentals)
 
 ---
 

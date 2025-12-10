@@ -1,6 +1,37 @@
 ---
-id: chapter2-agent-bridge
+sidebar_position: 2
 title: "Chapter 2: Bridging Python Agents to ROS 2"
+module: 1
+chapter: 2
+id: "ch2-agent-bridge"
+learning_objectives:
+  - "Understand autonomous agents and their role in robotics decision-making"
+  - "Create Python agents with decision-making logic"
+  - "Integrate agents with ROS 2 using rclpy"
+prerequisites:
+  - "Chapter 1 completion (ROS 2 fundamentals)"
+  - "Python classes and callbacks"
+  - "ROS 2 Humble environment"
+related_chapters:
+  - "chapter1-ros2-core"
+  - "chapter3-urdf-model"
+keywords:
+  - "agents"
+  - "decision-making"
+  - "Python"
+  - "rclpy"
+  - "sensor integration"
+difficulty: "Intermediate"
+estimated_reading_time: "28 minutes"
+estimated_word_count: 3500
+created_at: "2025-12-09"
+chunk_count: 7
+searchable_terms:
+  - "agent"
+  - "rclpy"
+  - "callback"
+  - "subscription"
+  - "publisher"
 ---
 
 # Chapter 2: Bridging Python Agents to ROS 2
@@ -35,10 +66,21 @@ In robotics, an **agent** is an autonomous decision-making entity that:
 
 **Key insight**: An agent is a **unit of decision-making logic**, separate from communication.
 
+### Agent Architecture Diagram
+
+```mermaid
+graph LR
+  A["ROS 2 Topic:<br/>Sensor Data"] -->|Subscribe| B["Agent Logic<br/>(Python)"]
+  B -->|Decision| C["ROS 2 Topic:<br/>Control Command"]
+  style A fill:#e1f5ff
+  style B fill:#fff9c4
+  style C fill:#e1f5ff
 ```
-[Sensor Input] ’ [Agent Logic] ’ [Control Output]
-     (ROS 2)     (Python code)      (ROS 2)
-```
+
+**How it works**:
+1. **Sensor Input**: Robot subscribes to ROS 2 topics (e.g., `/lidar/distance`)
+2. **Agent Logic**: Python code processes sensor data and makes decisions
+3. **Control Output**: Agent publishes decisions back to ROS 2 topics (e.g., `/cmd_vel` for movement)
 
 ### Agent vs. Node: Key Difference
 
@@ -282,6 +324,23 @@ python3 simple_agent.py
 
 ---
 
+## Cross-Module Connections
+
+**Module 1 → Module 2 (Digital Twin)**:
+- Your agents will receive simulated sensor data from Gazebo
+- Test agent decision-making against realistic physics before real-world deployment
+- Publish control commands to simulated robots and see the results
+
+**Module 1 → Module 3 (Perception)**:
+- VSLAM and Nav2 nodes publish perception estimates (pose, map, planned path)
+- Your agents subscribe to these topics to understand robot state
+- Perception feedback refines agent decisions in real-time
+
+**Module 1 → Module 4 (VLA Pipeline)**:
+- LLM planning nodes process language and generate action goals
+- Your agent patterns execute these goals through ROS 2 action servers
+- Feedback loops ensure actions complete successfully
+
 ## Next Steps
 
 ### Immediate Extensions
@@ -298,6 +357,21 @@ python3 simple_agent.py
 - Computer vision processing
 
 ---
+
+## Acronym Reference
+
+| Acronym | Full Name | Definition |
+|---------|-----------|-----------|
+| **AI** | Artificial Intelligence | Computer systems that simulate intelligent behavior |
+| **ML** | Machine Learning | Subset of AI where systems learn from data |
+| **rclpy** | ROS Client Library Python | Python library for writing ROS 2 nodes and agents |
+| **API** | Application Programming Interface | Set of functions for software interaction |
+| **FSM** | Finite State Machine | System with discrete states and transitions |
+| **BT** | Behavior Tree | Hierarchical decision-making structure for agent control |
+| **Hz** | Hertz | Unit of frequency (cycles per second) |
+| **ROS 2** | Robot Operating System 2 | Middleware framework for robot software |
+| **pub/sub** | Publish/Subscribe | Asynchronous messaging pattern |
+| **ID** | Identifier | Unique name for a ROS 2 component |
 
 ## Resources
 

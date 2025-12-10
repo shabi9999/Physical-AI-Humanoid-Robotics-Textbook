@@ -1,70 +1,211 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+// import React from 'react';
+// import Link from '@docusaurus/Link';
 
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: ReactNode;
-};
+// const moduleData = [
+//   {
+//     weeks: 'Weeks 3-5',
+//     title: 'Module 1: The Robotic Nervous System (ROS 2)',
+//     description: 'Master ROS 2 architecture, communication patterns, and robot modeling. Build distributed robotic systems using nodes, topics, services, and actions.',
+//     outcomes: [
+//       'Explain the ROS 2 computation graph and its components',
+//       'Create publishers, subscribers, and service clients using rclpy',
+//       'Define robot structure using URDF and visualize in RViz2',
+//     ],
+//     link: '/module1/intro',
+//   },
+//   {
+//     weeks: 'Weeks 6-7',
+//     title: 'Module 2: Digital Twins - Simulation & Sensors',
+//     description: 'Build digital twins for robotic systems using Gazebo and Unity. Simulate sensors, physics, and environments for testing before deploying to physical hardware.',
+//     outcomes: [
+//       'Create Gazebo simulation environments with physics and sensors',
+//       'Integrate Unity for photorealistic sensor simulation',
+//       'Test navigation and perception algorithms in simulation',
+//     ],
+//     link: '/module2/intro',
+//   },
+//   {
+//     weeks: 'Weeks 8-10',
+//     title: 'Module 3: NVIDIA Isaac - Perception & Navigation',
+//     description: 'Leverage NVIDIA Isaac Sim for GPU-accelerated robotics. Implement VSLAM, Nav2 navigation stacks, and reinforcement learning for autonomous behaviors.',
+//     outcomes: [
+//       'Set up and configure NVIDIA Isaac Sim environments',
+//       'Implement Visual SLAM for robot localization',
+//       'Deploy Nav2 navigation stack for autonomous navigation',
+//     ],
+//     link: '/module3/intro',
+//   },
+//   {
+//     weeks: 'Weeks 11-13',
+//     title: 'Module 4: VLA & Humanoid Robotics',
+//     description: 'Integrate Vision-Language-Action models with humanoid robots. Master humanoid kinematics, manipulation, and conversational AI for natural human-robot interaction.',
+//     outcomes: [
+//       'Calculate forward and inverse kinematics for humanoid robots',
+//       'Implement manipulation primitives for pick-and-place tasks',
+//       'Integrate conversational AI with robot action planning',
+//     ],
+//     link: '/module4/intro',
+//   },
+// ];
 
-const FeatureList: FeatureItem[] = [
+// function ModuleCard({ weeks, title, description, outcomes, link }) {
+//   return (
+//     <div className="bg-white border border-gray-200 rounded-xl p-8 hover:border-[#16a34a] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+//       {/* Week Badge */}
+//       <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+//         {weeks}
+//       </div>
+
+//       {/* Module Title */}
+//       <h3 className="text-xl font-bold text-[#059669] mb-4 leading-snug hover:text-[#047857] transition-colors">
+//         {title}
+//       </h3>
+
+//       {/* Description */}
+//       <p className="text-gray-600 leading-relaxed mb-6">
+//         {description}
+//       </p>
+
+//       {/* Learning Outcomes */}
+//       <div className="border-t border-gray-200 pt-5">
+//         <h4 className="text-xs font-semibold text-[#16a34a] uppercase tracking-wide mb-3">
+//           Learning Outcomes
+//         </h4>
+//         <ul className="space-y-2 mb-6">
+//           {outcomes.map((outcome, idx) => (
+//             <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+//               <span className="text-[#16a34a] font-bold mt-0.5 flex-shrink-0">✓</span>
+//               <span>{outcome}</span>
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+
+//       {/* Learn More Link */}
+//       <Link
+//         to={link}
+//         className="inline-flex items-center gap-1 text-[#059669] hover:text-[#047857] font-semibold text-sm hover:underline transition-colors"
+//       >
+//         Learn more
+//         <span>→</span>
+//       </Link>
+//     </div>
+//   );
+// }
+
+// export default function HomepageFeatures() {
+//   return (
+//     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+//       {moduleData.map((module, idx) => (
+//         <ModuleCard key={idx} {...module} />
+//       ))}
+//     </div>
+//   );
+// }
+
+// part 2
+
+import React from 'react';
+import Link from '@docusaurus/Link';
+
+const moduleData = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
+    weeks: 'Weeks 3-5',
+    title: 'Module 1: The Robotic Nervous System (ROS 2)',
+    description: 'Master ROS 2 architecture, communication patterns, and robot modeling. Build distributed robotic systems using nodes, topics, services, and actions.',
+    outcomes: [
+      'Explain the ROS 2 computation graph and its components',
+      'Create publishers, subscribers, and service clients using rclpy',
+      'Define robot structure using URDF and visualize in RViz2',
+    ],
+    link: '/module1/intro',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+    weeks: 'Weeks 6-7',
+    title: 'Module 2: Digital Twins - Simulation & Sensors',
+    description: 'Build digital twins for robotic systems using Gazebo and Unity. Simulate sensors, physics, and environments for testing before deploying to physical hardware.',
+    outcomes: [
+      'Create Gazebo simulation environments with physics and sensors',
+      'Integrate Unity for photorealistic sensor simulation',
+      'Test navigation and perception algorithms in simulation',
+    ],
+    link: '/module2/intro',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    weeks: 'Weeks 8-10',
+    title: 'Module 3: NVIDIA Isaac - Perception & Navigation',
+    description: 'Leverage NVIDIA Isaac Sim for GPU-accelerated robotics. Implement VSLAM, Nav2 navigation stacks, and reinforcement learning for autonomous behaviors.',
+    outcomes: [
+      'Set up and configure NVIDIA Isaac Sim environments',
+      'Implement Visual SLAM for robot localization',
+      'Deploy Nav2 navigation stack for autonomous navigation',
+    ],
+    link: '/module3/intro',
+  },
+  {
+    weeks: 'Weeks 11-13',
+    title: 'Module 4: VLA & Humanoid Robotics',
+    description: 'Integrate Vision-Language-Action models with humanoid robots. Master humanoid kinematics, manipulation, and conversational AI for natural human-robot interaction.',
+    outcomes: [
+      'Calculate forward and inverse kinematics for humanoid robots',
+      'Implement manipulation primitives for pick-and-place tasks',
+      'Integrate conversational AI with robot action planning',
+    ],
+    link: '/module4/intro',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function ModuleCard({ weeks, title, description, outcomes, link }) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+    <div className="bg-white border border-gray-200 rounded-xl p-8 hover:border-[#16a34a] hover:shadow-md transition-all duration-200">
+      {/* Week Badge */}
+      <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+        {weeks}
       </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+
+      {/* Module Title */}
+      <h3 className="text-xl font-bold text-[#059669] mb-4 leading-snug hover:text-[#047857] transition-colors">
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-gray-600 leading-relaxed mb-6">
+        {description}
+      </p>
+
+      {/* Learning Outcomes */}
+      <div className="border-t border-gray-200 pt-5 mb-6">
+        <h4 className="text-xs font-semibold text-[#16a34a] uppercase tracking-wide mb-3">
+          Learning Outcomes
+        </h4>
+        <ul className="space-y-2.5">
+          {outcomes.map((outcome, index) => (
+            <li key={index} className="flex items-start text-sm text-gray-600 leading-relaxed">
+              <span className="text-[#16a34a] font-bold text-base mr-3 mt-0.5">✓</span>
+              <span>{outcome}</span>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      {/* Learn More Link */}
+      <Link
+        to={link}
+        className="inline-flex items-center gap-1 text-[#059669] hover:text-[#047857] font-semibold text-sm hover:underline transition-colors"
+      >
+        Learn more <span>→</span>
+      </Link>
     </div>
   );
 }
 
-export default function HomepageFeatures(): ReactNode {
+export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+    <section>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {moduleData.map((module, index) => (
+          <ModuleCard key={index} {...module} />
+        ))}
       </div>
     </section>
   );

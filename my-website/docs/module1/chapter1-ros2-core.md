@@ -1,5 +1,36 @@
 ---
 sidebar_position: 1
+title: "Chapter 1: ROS 2 Core Concepts"
+module: 1
+chapter: 1
+id: "ch1-ros2-core"
+learning_objectives:
+  - "Understand ROS 2 fundamentals: Nodes, topics, services, and the pub/sub pattern"
+  - "Explain how ROS 2 nodes communicate asynchronously and synchronously"
+  - "Identify when to use topics vs services in robot systems"
+prerequisites:
+  - "Python basics (variables, functions, classes)"
+  - "Linux terminal commands"
+  - "ROS 2 Humble installed"
+related_chapters:
+  - "chapter2-agent-bridge"
+  - "chapter3-urdf-model"
+keywords:
+  - "ROS 2 nodes"
+  - "publish/subscribe"
+  - "services"
+  - "middleware"
+difficulty: "Beginner"
+estimated_reading_time: "25 minutes"
+estimated_word_count: 3000
+created_at: "2025-12-09"
+chunk_count: 6
+searchable_terms:
+  - "ROS 2"
+  - "nodes"
+  - "topics"
+  - "publish"
+  - "subscribe"
 ---
 
 # Chapter 1: ROS 2 Core Concepts
@@ -256,9 +287,40 @@ if __name__ == '__main__':
     main()
 ```
 
+## Cross-Module Connections
+
+**Module 1 → Module 2 (Digital Twin)**:
+- The ROS 2 topics you learned here will carry sensor data from Gazebo and Unity simulations
+- Nodes communicate with the simulator through the same pub/sub patterns
+
+**Module 1 → Module 3 (Perception)**:
+- VSLAM (Visual Simultaneous Localization and Mapping) runs as ROS 2 nodes publishing pose estimates
+- Nav2 path planning receives robot state from topics and publishes navigation commands
+- All perception feedback loops use ROS 2 topics and services you learned here
+
+**Module 1 → Module 4 (VLA Pipeline)**:
+- Speech recognition results arrive as ROS 2 messages on topics
+- LLM planning decisions are published as action goals
+- Robot execution feedback returns through ROS 2 topics
+
 ## Summary
 
-This chapter covered ROS 2 core concepts: nodes, topics, and services. You learned how to create independent components that communicate asynchronously (topics) and synchronously (services).
+This chapter covered ROS 2 core concepts: nodes, topics, and services. You learned how to create independent components that communicate asynchronously (topics) and synchronously (services). These patterns form the foundation for all robot communication in Modules 2-4.
+
+## Acronym Reference
+
+| Acronym | Full Name | Definition |
+|---------|-----------|-----------|
+| **ROS 2** | Robot Operating System 2 | Middleware framework for robot software development |
+| **pub/sub** | Publish/Subscribe | Asynchronous communication pattern where publishers send data to topics and subscribers receive it |
+| **QoS** | Quality of Service | Settings for ROS 2 communication reliability and latency |
+| **DDS** | Data Distribution Service | Underlying middleware protocol for ROS 2 communication |
+| **FAST-DDS** | Fast Implementations of Real-Time Middleware (DDS) | Default DDS implementation in ROS 2 Humble |
+| **CycloneDDS** | Alternative DDS Implementation | Compatible DDS implementation for ROS 2 |
+| **rclpy** | ROS Client Library Python | Python library for writing ROS 2 nodes |
+| **API** | Application Programming Interface | Set of functions and protocols for software interaction |
+| **CLI** | Command-Line Interface | Terminal-based tool for interacting with ROS 2 |
+| **URDF** | Unified Robot Description Format | XML format for describing robot structure |
 
 ## Additional Resources
 
