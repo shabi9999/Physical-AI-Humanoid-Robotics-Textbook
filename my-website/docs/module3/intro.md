@@ -277,7 +277,7 @@ All chapters are written to be:
 - **Practical**: Real-world examples with every concept
 - **Visual**: Diagrams and ASCII descriptions to illustrate ideas
 
-If you find a passage confusing, that's feedback we want! You can [open an issue on GitHub](https://github.com/Shahb/hackthon_humanoid_book/issues) to let us know.
+If you find a passage confusing, that's feedback we want! You can [open an issue on GitHub](https://github.com/shabi9999/hackthon_humanoid_book/issues) to let us know.
 
 ---
 

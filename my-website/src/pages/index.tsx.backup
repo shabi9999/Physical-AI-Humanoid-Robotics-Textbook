@@ -40,7 +40,7 @@ function HomepageHeader() {
             <span>→</span>
           </Link>
           <a
-            href="https://github.com/Shahb/hackthon_humanoid_book"
+            href="https://github.com/shabi9999/hackthon_humanoid_book"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent text-white border-2 border-white/30 font-semibold rounded-lg hover:bg-white/10 hover:no-underline transition-all"

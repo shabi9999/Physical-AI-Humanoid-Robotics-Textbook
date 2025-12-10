@@ -41,7 +41,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/', // Docs-only mode: serve docs at root
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/Shahb/hackthon_humanoid_book/tree/main/my-website/', // Update with actual repo
+          editUrl: 'https://github.com/shabi9999/hackthon_humanoid_book/tree/main/my-website/', // Update with actual repo
         },
         blog: false, // Disable blog for docs-only mode
         theme: {
@@ -77,7 +77,7 @@ const config: Config = {
           label: 'Course Content',
         },
         {
-          href: 'https://github.com/Shahb/hackthon_humanoid_book',
+          href: 'https://github.com/shabi9999/hackthon_humanoid_book',
           label: 'GitHub',
           position: 'right',
         },
@@ -104,7 +104,7 @@ const config: Config = {
             },
             {
               label: 'GitHub Repository',
-              href: 'https://github.com/Shahb/hackthon_humanoid_book',
+              href: 'https://github.com/shabi9999/hackthon_humanoid_book',
             },
           ],
         },

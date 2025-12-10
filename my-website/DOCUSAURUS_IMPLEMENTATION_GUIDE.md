@@ -176,7 +176,7 @@ navbar: {
       label: 'Module 4: VLA',
     },
     {
-      href: 'https://github.com/Shahb/hackthon_humanoid_book',
+      href: 'https://github.com/shabi9999/hackthon_humanoid_book',
       label: 'GitHub',
       position: 'right',
     },
@@ -198,11 +198,11 @@ navbar: {
   items: [
     {
       label: 'GitHub',
-      href: 'https://github.com/Shahb/hackthon_humanoid_book',
+      href: 'https://github.com/shabi9999/hackthon_humanoid_book',
     },
     {
       label: 'Issues',
-      href: 'https://github.com/Shahb/hackthon_humanoid_book/issues',
+      href: 'https://github.com/shabi9999/hackthon_humanoid_book/issues',
     },
   ],
 }
