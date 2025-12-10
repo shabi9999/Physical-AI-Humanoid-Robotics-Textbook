@@ -23,7 +23,7 @@ function HeroSection() {
         </p>
         <div className={styles.heroButtons}>
           <Link
-            to="/docs/intro"
+            to="/intro"
             className={styles.heroButtonPrimary}
           >
             Start Learning
@@ -55,7 +55,7 @@ function ModuleCards() {
         'Create publishers, subscribers, and service clients using rclpy',
         'Define robot structure using URDF and visualize in RViz2',
       ],
-      link: '/docs/module1/intro',
+      link: '/module1/intro',
     },
     {
       weeks: 'Weeks 6-7',
@@ -66,7 +66,7 @@ function ModuleCards() {
         'Integrate Unity for photorealistic sensor simulation',
         'Test navigation and perception algorithms in simulation',
       ],
-      link: '/docs/module2/intro',
+      link: '/module2/intro',
     },
     {
       weeks: 'Weeks 8-10',
@@ -77,7 +77,7 @@ function ModuleCards() {
         'Implement Visual SLAM for robot localization',
         'Deploy Nav2 navigation stack for autonomous navigation',
       ],
-      link: '/docs/module3/intro',
+      link: '/module3/intro',
     },
     {
       weeks: 'Weeks 11-13',
@@ -88,7 +88,7 @@ function ModuleCards() {
         'Implement manipulation primitives for pick-and-place tasks',
         'Integrate conversational AI with robot action planning',
       ],
-      link: '/docs/module4/intro',
+      link: '/module4/intro',
     },
   ];
 
@@ -131,14 +131,14 @@ function ModuleCards() {
 // Quick Links Component
 function QuickLinks() {
   const links = [
-    { title: 'Workstation Setup', href: '/docs/setup/workstation' },
-    { title: 'Edge Kit Setup', href: '/docs/setup/edge-kit' },
-    { title: 'Cloud Setup', href: '/docs/setup/cloud' },
-    { title: 'Glossary', href: '/docs/references/glossary' },
-    { title: 'Module 1: ROS 2', href: '/docs/module1/intro' },
-    { title: 'Module 2: Digital Twin', href: '/docs/module2/intro' },
-    { title: 'Module 3: Isaac Sim', href: '/docs/module3/intro' },
-    { title: 'Module 4: VLA & Humanoids', href: '/docs/module4/intro' },
+    { title: 'Workstation Setup', href: '/setup/workstation' },
+    { title: 'Edge Kit Setup', href: '/setup/edge-kit' },
+    { title: 'Cloud Setup', href: '/setup/cloud' },
+    { title: 'Glossary', href: '/references/glossary' },
+    { title: 'Module 1: ROS 2', href: '/module1/intro' },
+    { title: 'Module 2: Digital Twin', href: '/module2/intro' },
+    { title: 'Module 3: Isaac Sim', href: '/module3/intro' },
+    { title: 'Module 4: VLA & Humanoids', href: '/module4/intro' },
   ];
 
   return (
