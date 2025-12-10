@@ -45,8 +45,8 @@ All **7 critical navigation and routing issues** have been identified and **fixe
 
 **Change**:
 ```markdown
-❌ FROM: https://github.com/shahbazthemodern/humanoid-book/issues
-✅ TO: https://github.com/Shahb/hackthon_humanoid_book/issues
+❌ FROM: https://github.com/shabi9999/humanoid-book/issues
+✅ TO: https://github.com/shabi9999/hackthon_humanoid_book/issues
 ```
 
 **Impact**: Users can now actually report issues on GitHub

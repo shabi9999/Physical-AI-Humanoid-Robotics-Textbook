@@ -130,8 +130,8 @@ All Phase 5 routing fixes have been **comprehensively verified and applied**. Th
 
 **Change Applied**:
 ```markdown
-❌ [open an issue on GitHub](https://github.com/shahbazthemodern/humanoid-book/issues)
-✅ [open an issue on GitHub](https://github.com/Shahb/hackthon_humanoid_book/issues)
+❌ [open an issue on GitHub](https://github.com/shabi9999/humanoid-book/issues)
+✅ [open an issue on GitHub](https://github.com/shabi9999/hackthon_humanoid_book/issues)
 ```
 
 **Why This Matters**: Users need to report issues on the correct GitHub repository. Wrong link would result in 404.

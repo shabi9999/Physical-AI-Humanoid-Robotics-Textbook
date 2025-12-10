@@ -1,7 +1,7 @@
 # Humanoid Robotics Textbook + RAG Chatbot — Comprehensive Project Status
 
 **Project**: Hackathon Humanoid Book | **Date**: 2025-12-09 | **Phase**: 5/13 Complete (38%)
-**Repository**: [Shahb/hackthon_humanoid_book](https://github.com/Shahb/hackthon_humanoid_book)
+**Repository**: [Shahb/hackthon_humanoid_book](https://github.com/shabi9999/hackthon_humanoid_book)
 **Branch**: `004-vla-pipeline` | **Deployment**: GitHub Pages (Ready)
 
 ---
@@ -602,4 +602,4 @@ The humanoid robotics textbook foundation is complete and production-ready. All 
 **Last Updated**: 2025-12-09
 **Created By**: Claude Code AI Assistant
 **Project Owner**: Shahb
-**Repository**: https://github.com/Shahb/hackthon_humanoid_book
+**Repository**: https://github.com/shabi9999/hackthon_humanoid_book

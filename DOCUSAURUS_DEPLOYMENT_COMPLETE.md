@@ -33,7 +33,7 @@ items: [
     label: 'Course Content',
   },
   {
-    href: 'https://github.com/Shahb/hackthon_humanoid_book',
+    href: 'https://github.com/shabi9999/hackthon_humanoid_book',
     label: 'GitHub',
     position: 'right',
   },

@@ -120,10 +120,10 @@ rm -rf my-website/docs/tutorial-extras/
 **Problem**: GitHub issue link uses wrong username:
 ```markdown
 ❌ WRONG
-[open an issue on GitHub](https://github.com/shahbazthemodern/humanoid-book/issues)
+[open an issue on GitHub](https://github.com/shabi9999/humanoid-book/issues)
 
 ✅ CORRECT
-[open an issue on GitHub](https://github.com/Shahb/hackthon_humanoid_book/issues)
+[open an issue on GitHub](https://github.com/shabi9999/hackthon_humanoid_book/issues)
 ```
 
 **Files to Fix**:
@@ -254,12 +254,12 @@ Replace: ](/docs/
 
 **Change from**:
 ```markdown
-https://github.com/shahbazthemodern/humanoid-book/issues
+https://github.com/shabi9999/humanoid-book/issues
 ```
 
 **Change to**:
 ```markdown
-https://github.com/Shahb/hackthon_humanoid_book/issues
+https://github.com/shabi9999/hackthon_humanoid_book/issues
 ```
 
 ---
@@ -340,12 +340,12 @@ Use Find & Replace in VS Code:
 
 **Before**:
 ```markdown
-https://github.com/shahbazthemodern/humanoid-book/issues
+https://github.com/shabi9999/humanoid-book/issues
 ```
 
 **After**:
 ```markdown
-https://github.com/Shahb/hackthon_humanoid_book/issues
+https://github.com/shabi9999/hackthon_humanoid_book/issues
 ```
 
 ---

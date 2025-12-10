@@ -108,8 +108,8 @@ Comprehensive guide covering:
 
 **Problem**: GitHub issue link used wrong repository
 ```markdown
-❌ WRONG: https://github.com/shahbazthemodern/humanoid-book/issues
-✅ FIXED: https://github.com/Shahb/hackthon_humanoid_book/issues
+❌ WRONG: https://github.com/shabi9999/humanoid-book/issues
+✅ FIXED: https://github.com/shabi9999/hackthon_humanoid_book/issues
 ```
 
 **File Fixed**: `docs/module3/intro.md` (line 280)

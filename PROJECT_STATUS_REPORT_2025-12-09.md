@@ -363,10 +363,10 @@ URL: http://localhost:3000/hackthon_humanoid_book/
 4. Use sidebar for quick navigation
 
 ### GitHub Access
-- Repository: https://github.com/Shahb/hackthon_humanoid_book
+- Repository: https://github.com/shabi9999/hackthon_humanoid_book
 - Clone command:
   ```bash
-  git clone https://github.com/Shahb/hackthon_humanoid_book.git
+  git clone https://github.com/shabi9999/hackthon_humanoid_book.git
   ```
 
 ---

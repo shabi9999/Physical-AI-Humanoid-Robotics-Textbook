@@ -141,7 +141,7 @@ Chapter Links:
   Line 303: [Chapter 1 →](/docs/module3/chapter1-isaac-sim)    ✅
 
 External Link Fix:
-  Line 280: https://github.com/Shahb/hackthon_humanoid_book/issues ✅
+  Line 280: https://github.com/shabi9999/hackthon_humanoid_book/issues ✅
 ```
 
 #### 4. `docs/module4/intro.md`
@@ -296,7 +296,7 @@ navbar: {
       label: 'Module 4: VLA',
     },
     {
-      href: 'https://github.com/Shahb/hackthon_humanoid_book',  ← External link ✅
+      href: 'https://github.com/shabi9999/hackthon_humanoid_book',  ← External link ✅
       label: 'GitHub',
     },
   ],
@@ -322,8 +322,8 @@ navbar: {
 
 | Link | URL | Status |
 |------|-----|--------|
-| GitHub Repository | https://github.com/Shahb/hackthon_humanoid_book | ✅ Works |
-| GitHub Issues | https://github.com/Shahb/hackthon_humanoid_book/issues | ✅ Fixed |
+| GitHub Repository | https://github.com/shabi9999/hackthon_humanoid_book | ✅ Works |
+| GitHub Issues | https://github.com/shabi9999/hackthon_humanoid_book/issues | ✅ Fixed |
 | ROS 2 Docs | https://docs.ros.org/en/humble/ | ✅ Works |
 | NVIDIA Isaac | https://docs.omniverse.nvidia.com/isaacsim/latest/ | ✅ Works |
 | Nav2 | https://nav2.org/ | ✅ Works |
