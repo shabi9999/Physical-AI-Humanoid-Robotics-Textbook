@@ -257,19 +257,19 @@ Robot controller tracks this trajectory:
 
 ### ROS 2 Concepts (Module 1)
 
-Action Servers build on core [ROS 2 concepts from Module 1](/docs/module1/chapter1-ros2-fundamentals):
+Action Servers build on core [ROS 2 concepts from Module 1](/module1/ch1-ros2-core):
 
-- **[ROS 2 Actions](/docs/module1/chapter1-ros2-fundamentals#actions)**: The foundation for this chapter
-- **[Topics](/docs/module1/chapter1-ros2-fundamentals#topics-and-pub-sub)**: Action servers publish feedback on internal topics
-- **[Services](/docs/module1/chapter1-ros2-fundamentals#services)**: Actions extend services to add feedback
-- **[Python Agents](/docs/module1/chapter2-agent-bridge)**: Coordinate multiple actions for complex tasks
-- **[URDF Models](/docs/module1/chapter3-urdf)**: Define robot structure for trajectory validation
+- **[ROS 2 Actions](/module1/ch1-ros2-core)**: The foundation for this chapter
+- **[Topics](/module1/ch1-ros2-core)**: Action servers publish feedback on internal topics
+- **[Services](/module1/ch1-ros2-core)**: Actions extend services to add feedback
+- **[Python Agents](/module1/ch2-agent-bridge)**: Coordinate multiple actions for complex tasks
+- **[URDF Models](/module1/ch3-urdf-model)**: Define robot structure for trajectory validation
 
-See [Module 1: ROS 2 Fundamentals](/docs/module1/chapter1-ros2-fundamentals) for detailed concepts.
+See [Module 1: ROS 2 Fundamentals](/module1/ch1-ros2-core) for detailed concepts.
 
 ### Perception Integration (Module 3)
 
-Feedback loops connect to perception systems from [Module 3](/docs/module3/intro):
+Feedback loops connect to perception systems from [Module 3](/module3/intro):
 
 **Closed-Loop Execution Pattern**:
 ```
@@ -277,16 +277,16 @@ Action Server executing motion
     ↓
 Sends feedback: "Moving to position..."
     ↓
-[VSLAM System (Module 3)](/docs/module3/chapter3-vslam) provides localization feedback
+[VSLAM System (Module 3)](/module3/chapter3-vslam) provides localization feedback
     ↓
 Compare planned vs actual position
     ↓
 If error > threshold: Replan and adjust
     ↓
-[Nav2 (Module 3)](/docs/module3/chapter4-nav2) validates against obstacles
+[Nav2 (Module 3)](/module3/chapter4-nav2) validates against obstacles
 ```
 
-For detailed perception integration, see [Module 3: Perception Systems](/docs/module3/intro).
+For detailed perception integration, see [Module 3: Perception Systems](/module3/intro).
 
 ---
 
@@ -382,7 +382,7 @@ Response options:
 ✓ **Trajectories** are time-parameterized paths with positions, velocities, and accelerations
 ✓ **Safety checks** before execution validate reachability, joint limits, and collision freedom
 ✓ **Cancellation** possible at any time (immediate stop or graceful wind-down)
-✓ **Integration**: Works with [Module 1 ROS 2 architecture](/docs/module1/chapter1-ros2-fundamentals) and [Module 3 perception](/docs/module3/intro) for closed-loop control
+✓ **Integration**: Works with [Module 1 ROS 2 architecture](/module1/ch1-ros2-core) and [Module 3 perception](/module3/intro) for closed-loop control
 ✓ **Real-world systems** adapt based on sensor feedback—never execute blindly
 
 ---
@@ -394,7 +394,7 @@ You now understand each component of the VLA system:
 - **Chapter 2**: LLM understands and plans
 - **Chapter 3**: Action Server executes with feedback
 
-How do they work together in real time? In **[Chapter 4: Complete VLA Pipeline](/docs/module4/chapter4-complete-vla)**, you'll see the full system working together with perception loops and error recovery.
+How do they work together in real time? In **[Chapter 4: Complete VLA Pipeline](/module4/ch4-complete-vla)**, you'll see the full system working together with perception loops and error recovery.
 
 ---
 

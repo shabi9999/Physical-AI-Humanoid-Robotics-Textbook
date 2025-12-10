@@ -341,7 +341,7 @@ LiDAR says object grasped → Success!
 
 ## Integrating Whisper with ROS 2
 
-Now let's connect Whisper to the robot system using [ROS 2 concepts from Module 1](/docs/module1/chapter1-ros2-fundamentals):
+Now let's connect Whisper to the robot system using [ROS 2 concepts from Module 1](/module1/ch1-ros2-core):
 
 ### Voice Input Node Architecture
 
@@ -370,13 +370,13 @@ In a real humanoid robot system, you'd structure Whisper as a ROS 2 service or t
 └─────────────────────────────────────┘
 ```
 
-**Key ROS 2 Concepts** (Review [Module 1 fundamentals](/docs/module1/chapter1-ros2-fundamentals) for details):
+**Key ROS 2 Concepts** (Review [Module 1 fundamentals](/module1/ch1-ros2-core) for details):
 
 - **Nodes**: Whisper runs as a single ROS 2 node processing audio
 - **Topics**: Audio data flows on `/audio/raw`, transcription on `/speech/transcribed`
 - **Messages**: Audio messages contain raw PCM bytes; speech messages contain text strings with confidence
 - **Services**: Whisper can also be a service node when you need synchronous transcription
-- **Python Agents**: You'd use [ROS 2 Python agents from Module 1](/docs/module1/chapter2-agent-bridge) to coordinate between Whisper and LLM nodes
+- **Python Agents**: You'd use [ROS 2 Python agents from Module 1](/module1/ch2-agent-bridge) to coordinate between Whisper and LLM nodes
 
 ### Message Flow Example
 
@@ -403,11 +403,11 @@ class VoiceToActionAgent:
         self.speech_publisher.publish(response.transcription)
 ```
 
-**Note**: This is conceptual pseudocode showing how ROS 2 components connect. For actual implementation details, see [Module 1 Python Agent Bridge](/docs/module1/chapter2-agent-bridge).
+**Note**: This is conceptual pseudocode showing how ROS 2 components connect. For actual implementation details, see [Module 1 Python Agent Bridge](/module1/ch2-agent-bridge).
 
 ### Action Server Integration Preview
 
-Once Whisper transcribes text, the next layer is the [ROS 2 Action Server](/docs/module1/chapter1-ros2-fundamentals#actions) covered in Chapter 3. The complete flow:
+Once Whisper transcribes text, the next layer is the [ROS 2 Action Server](/module4/ch3-ros2-actions) covered in Chapter 3. The complete flow:
 
 ```
 Audio Input
@@ -419,7 +419,7 @@ Structured Plan
 Robot Motion
 ```
 
-For more detail on ROS 2 Actions, see [Chapter 3: ROS 2 Actions](/docs/module4/chapter3-ros2-actions#action-servers) and [Module 1 Actions documentation](/docs/module1/chapter1-ros2-fundamentals#actions).
+For more detail on ROS 2 Actions, see [Chapter 3: ROS 2 Actions](/module4/ch3-ros2-actions) and [Module 1 Core Concepts](/module1/ch1-ros2-core).
 
 ---
 
@@ -444,7 +444,7 @@ Beyond robotics, Whisper enables accessibility:
 ✓ **97% accuracy** on English makes it reliable for robot voice commands
 ✓ **Transcription ≠ understanding** - Whisper transcribes speech, but doesn't comprehend meaning
 ✓ **Limitations**: No context understanding, no real-time streaming in base version, no action capability
-✓ **ROS 2 integration**: Whisper runs as a node/service in the robot system (see [Module 1 ROS 2 concepts](/docs/module1/chapter1-ros2-fundamentals))
+✓ **ROS 2 integration**: Whisper runs as a node/service in the robot system (see [Module 1 ROS 2 concepts](/module1/ch1-ros2-core))
 ✓ **Next step (Chapter 2)**: Language understanding via LLM to extract intent and entities
 ✓ **Complete system**: Chapter 4 shows how Whisper + LLM + ROS 2 Actions work together
 
@@ -462,7 +462,7 @@ Beyond robotics, Whisper enables accessibility:
 
 ## Next: Chapter 2
 
-Whisper gives you text. But what does the text mean? In **[Chapter 2: LLM Planning](/docs/module4/chapter2-llm-planning)**, you'll learn how robots **understand intent** from that text using large language models.
+Whisper gives you text. But what does the text mean? In **[Chapter 2: LLM Planning](/module4/ch2-llm-planning)**, you'll learn how robots **understand intent** from that text using large language models.
 
 ---
 

@@ -298,17 +298,17 @@ Object: "it" (Unknown! Pronoun resolution failed)
 
 ## Integration with Module 1: ROS 2 Coordination
 
-The LLM output becomes a [ROS 2 message](/docs/module1/chapter1-ros2-fundamentals#messages) that coordinates the robot system:
+The LLM output becomes a [ROS 2 message](/module1/ch1-ros2-core) that coordinates the robot system:
 
 **Flow**:
 1. Whisper (Chapter 1) publishes text to `/speech/transcribed` topic
-2. [ROS 2 Python Agent](/docs/module1/chapter2-agent-bridge) receives transcription
+2. [ROS 2 Python Agent](/module1/ch2-agent-bridge) receives transcription
 3. Agent calls LLM planning service
 4. LLM outputs structured JSON action
 5. Agent publishes result to `/planning/action` topic
-6. [Action Server](/docs/module1/chapter1-ros2-fundamentals#actions) receives and executes (Chapter 3)
+6. [Action Server](/module1/ch1-ros2-core) receives and executes (Chapter 3)
 
-See [Module 1: Python Agents](/docs/module1/chapter2-agent-bridge) for detailed coordination patterns and [Chapter 3: ROS 2 Actions](/docs/module4/chapter3-ros2-actions) for execution details.
+See [Module 1: Python Agents](/module1/ch2-agent-bridge) for detailed coordination patterns and [Chapter 3: ROS 2 Actions](/module4/ch3-ros2-actions) for execution details.
 
 ---
 
@@ -324,10 +324,10 @@ Chapter 2 (LLM): Text → Structured Plan
     {action: pick_up, object: blue_object, constraints: {force: gentle}}
               ↓
 Chapter 3 (ROS 2 Actions): Plan → Robot Motion
-    Execute trajectory via [Action Servers](/docs/module4/chapter3-ros2-actions)
+    Execute trajectory via [Action Servers](/module4/ch3-ros2-actions)
               ↓
 Chapter 4 (Feedback Loop): Motion → Perception
-    Confirm object grasped via VSLAM/sensors ([Module 3](/docs/module3/intro))
+    Confirm object grasped via VSLAM/sensors ([Module 3](/module3/intro))
 ```
 
 **LLM's role**: Translate human language to robot-understandable structured plans
@@ -354,7 +354,7 @@ LLM might output:
 Robot searches for "red small xyz object" → Doesn't exist → Failure
 ```
 
-**Solution**: Always validate LLM output against available objects in the scene. See [Module 3: Vision Systems](/docs/module3/chapter1-isaac-sim) for object detection integration.
+**Solution**: Always validate LLM output against available objects in the scene. See [Module 3: Vision Systems](/module3/ch1-isaac-sim-fundamentals) for object detection integration.
 
 ### Example 2: Out-of-Domain Commands
 
@@ -416,14 +416,14 @@ LLM (with context): "The user is probably pointing at the nearest object or most
 ✓ **Few-shot learning** teaches LLM your exact desired output format via examples
 ✓ **Capabilities**: Intent, entities, constraints, multi-step planning, reasoning
 ✓ **Limitations**: Hallucination, out-of-domain commands, ambiguity without context
-✓ **Integration**: Works within [ROS 2 architecture](/docs/module1/chapter1-ros2-fundamentals) as a planning service
+✓ **Integration**: Works within [ROS 2 architecture](/module1/ch1-ros2-core) as a planning service
 ✓ **Advantage over hard-coding**: Single LLM handles endless command variations
 
 ---
 
 ## Next: Chapter 3
 
-Now you have a structured action plan from the LLM. But how does the robot **execute** it in the real world? In **[Chapter 3: ROS 2 Action Integration](/docs/module4/chapter3-ros2-actions)**, you'll learn how robots translate plans into actual motion using action servers and trajectory execution.
+Now you have a structured action plan from the LLM. But how does the robot **execute** it in the real world? In **[Chapter 3: ROS 2 Action Integration](/module4/ch3-ros2-actions)**, you'll learn how robots translate plans into actual motion using action servers and trajectory execution.
 
 ---
 
