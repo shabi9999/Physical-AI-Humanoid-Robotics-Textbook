@@ -22,8 +22,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   organizationName: 'shabi9999', // Update with actual GitHub username
-  projectName: '/Physical-AI-Humanoid-Robotics-Textbook/', // Update with actual repo name
-  deploymentBranch: "gh-pages",
+  projectName: 'Physical-AI-Humanoid-Robotics-Textbook', // Update with actual repo name
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
