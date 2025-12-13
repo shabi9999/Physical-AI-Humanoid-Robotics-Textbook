@@ -1,23 +1,12 @@
-// {
-//   // This file is not used in compilation. It is here just for a nice editor experience.
-//   "extends": "@docusaurus/tsconfig",
-//   "compilerOptions": {
-//     "baseUrl": "."
-//   },
-//   "exclude": [".docusaurus", "build"]
-// }
-
-
-
 {
+  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "baseUrl": ".",           // <-- still here for now
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@site/*": ["./*"]
     },
-    "ignoreDeprecations": "6.0"  // <-- add this line
+    "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "build", ".docusaurus"]
 }

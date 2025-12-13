@@ -39,7 +39,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          routeBasePath: '/', // Docs-only mode: serve docs at root
+          routeBasePath: '/docs', // Docs-only mode: serve docs at root
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/shabi9999/hackthon_humanoid_book/tree/main/my-website/', // Update with actual repo
         },

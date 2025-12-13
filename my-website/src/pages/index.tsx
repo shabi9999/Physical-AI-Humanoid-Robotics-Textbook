@@ -4,7 +4,14 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
-// Hero Section Component
+interface Module {
+  weeks: string;
+  title: string;
+  description: string;
+  outcomes: string[];
+  link: string;
+}
+
 function HeroSection() {
   return (
     <header className={styles.heroSection}>
@@ -23,14 +30,14 @@ function HeroSection() {
         </p>
         <div className={styles.heroButtons}>
           <Link
-            to="/intro"
+            to="/docs/intro"
             className={styles.heroButtonPrimary}
           >
             Start Learning
             <span>→</span>
           </Link>
           <a
-            href="https://github.com/shabi9999/hackthon_humanoid_book"
+            href="https://github.com/shabi9999"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.heroButtonSecondary}
@@ -43,9 +50,8 @@ function HeroSection() {
   );
 }
 
-// Module Cards Component
 function ModuleCards() {
-  const modules = [
+  const modules: Module[] = [
     {
       weeks: 'Weeks 3-5',
       title: 'Module 1: The Robotic Nervous System (ROS 2)',
@@ -55,7 +61,7 @@ function ModuleCards() {
         'Create publishers, subscribers, and service clients using rclpy',
         'Define robot structure using URDF and visualize in RViz2',
       ],
-      link: '/module1/intro',
+      link: '/docs/module1/intro',
     },
     {
       weeks: 'Weeks 6-7',
@@ -66,7 +72,7 @@ function ModuleCards() {
         'Integrate Unity for photorealistic sensor simulation',
         'Test navigation and perception algorithms in simulation',
       ],
-      link: '/module2/intro',
+      link: '/docs/module2/intro',
     },
     {
       weeks: 'Weeks 8-10',
@@ -77,7 +83,7 @@ function ModuleCards() {
         'Implement Visual SLAM for robot localization',
         'Deploy Nav2 navigation stack for autonomous navigation',
       ],
-      link: '/module3/intro',
+      link: '/docs/module3/intro',
     },
     {
       weeks: 'Weeks 11-13',
@@ -88,7 +94,7 @@ function ModuleCards() {
         'Implement manipulation primitives for pick-and-place tasks',
         'Integrate conversational AI with robot action planning',
       ],
-      link: '/module4/intro',
+      link: '/docs/module4/intro',
     },
   ];
 
@@ -128,17 +134,21 @@ function ModuleCards() {
   );
 }
 
-// Quick Links Component
+interface QuickLink {
+  title: string;
+  href: string;
+}
+
 function QuickLinks() {
-  const links = [
-    { title: 'Workstation Setup', href: '/setup/workstation' },
-    { title: 'Edge Kit Setup', href: '/setup/edge-kit' },
-    { title: 'Cloud Setup', href: '/setup/cloud' },
-    { title: 'Glossary', href: '/references/glossary' },
-    { title: 'Module 1: ROS 2', href: '/module1/intro' },
-    { title: 'Module 2: Digital Twin', href: '/module2/intro' },
-    { title: 'Module 3: Isaac Sim', href: '/module3/intro' },
-    { title: 'Module 4: VLA & Humanoids', href: '/module4/intro' },
+  const links: QuickLink[] = [
+    { title: 'Workstation Setup', href: '/docs/setup/setup-workstation' },
+    { title: 'Edge Kit Setup', href: '/docs/setup/setup-edge-kit' },
+    { title: 'Cloud Setup', href: '/docs/setup/setup-cloud' },
+    { title: 'Glossary', href: '/docs/glossary' },
+    { title: 'Module 1: ROS 2', href: '/docs/module1/intro' },
+    { title: 'Module 2: Digital Twin', href: '/docs/module2/intro' },
+    { title: 'Module 3: Isaac Sim', href: '/docs/module3/intro' },
+    { title: 'Module 4: VLA & Humanoids', href: '/docs/module4/intro' },
   ];
 
   return (
@@ -160,9 +170,8 @@ function QuickLinks() {
   );
 }
 
-// Main Homepage Component
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
 
   return (
     <Layout
@@ -183,4 +192,3 @@ export default function Home() {
     </Layout>
   );
 }
-

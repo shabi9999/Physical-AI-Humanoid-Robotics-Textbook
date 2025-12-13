@@ -70,13 +70,13 @@ Before starting, you should have:
 ## Getting Started
 
 ### Step 1: Choose Your Environment
-- **[Setup Guides](/setup/setup-intro)**: Configure your development environment (Workstation, Edge Kit, or Cloud)
+- **[Setup Guides](/docs/setup/setup-intro)**: Configure your development environment (Workstation, Edge Kit, or Cloud)
 
 ### Step 2: Follow the Learning Path
-1. Start with **[Module 1: ROS 2 Fundamentals](/module1/intro)**
-2. Progress to **[Module 2: Digital Twin](/module2/intro)**
-3. Learn **[Module 3: Isaac Sim & AI](/module3/intro)**
-4. Master **[Module 4: Vision-Language-Action Pipeline](/module4/intro)**
+1. Start with **[Module 1: ROS 2 Fundamentals](/docs/module1/intro)**
+2. Progress to **[Module 2: Digital Twin](/docs/module2/intro)**
+3. Learn **[Module 3: Isaac Sim & AI](/docs/module3/intro)**
+4. Master **[Module 4: Vision-Language-Action Pipeline](/docs/module4/intro)**
 
 ### Step 3: Hands-On Practice
 - Each chapter includes **code examples** you can run immediately
@@ -84,7 +84,7 @@ Before starting, you should have:
 - Build your own projects using provided templates
 
 ### Step 4: Get Help
-- **Reference**: Check the [Glossary & References](/glossary)
+- **Reference**: Check the [Glossary & References](/docs/glossary)
 - **Documentation**: Use the troubleshooting sections in each chapter
 - **Resources**: Visit official docs for [ROS 2](https://docs.ros.org/), [Gazebo](https://gazebosim.org/), [Isaac Sim](https://developer.nvidia.com/isaac/)
 
@@ -171,7 +171,7 @@ After completing this course, you'll be able to:
 
 Get your environment ready:
 
-- **[Setup Guides Overview](/setup/setup-intro)** - Compare three deployment models
+- **[Setup Guides Overview](/docs/setup/setup-intro)** - Compare three deployment models
 - **[Digital Twin Workstation Setup](/setup/setup-workstation)** - Local development on PC/Mac/Linux
 - **[Physical AI Edge Kit Setup](/setup/setup-edge-kit)** - Deploy to NVIDIA Jetson
 - **[Cloud-Native Development Setup](/setup/setup-cloud)** - Docker & Kubernetes
@@ -180,25 +180,25 @@ Get your environment ready:
 
 Progress through the complete curriculum:
 
-- **[Module 1: ROS 2 Fundamentals](/module1/intro)** - Learn ROS 2 core concepts
+- **[Module 1: ROS 2 Fundamentals](/docs/module1/intro)** - Learn ROS 2 core concepts
   - [Chapter 1: ROS 2 Core Concepts](/module1/ch1-ros2-core)
   - [Chapter 2: Agent Bridging](/module1/ch2-agent-bridge)
   - [Chapter 3: URDF Modeling](/module1/ch3-urdf-model)
 
-- **[Module 2: Digital Twin](/module2/intro)** - Build virtual simulations
+- **[Module 2: Digital Twin](/docs/module2/intro)** - Build virtual simulations
   - [Chapter 1: Digital Twin Concepts](/module2/ch1-digital-twin-concepts)
   - [Chapter 2: Gazebo Physics](/module2/ch2-gazebo-physics)
   - [Chapter 3: World Building](/module2/ch3-world-building)
   - [Chapter 4: Sensor Simulation](/module2/ch4-sensor-simulation)
   - [Chapter 5: Unity Visualization](/module2/ch5-unity-visualization)
 
-- **[Module 3: Isaac Sim & AI](/module3/intro)** - Advanced robot brain
+- **[Module 3: Isaac Sim & AI](/docs/module3/intro)** - Advanced robot brain
   - [Chapter 1: Isaac Sim Fundamentals](/module3/ch1-isaac-sim-fundamentals)
   - [Chapter 2: Synthetic Data Generation](/module3/chapter2-synthetic-data)
   - [Chapter 3: VSLAM](/module3/chapter3-vslam)
   - [Chapter 4: Nav2 Path Planning](/module3/chapter4-nav2)
 
-- **[Module 4: Vision-Language-Action Pipeline](/module4/intro)** - Complete VLA system
+- **[Module 4: Vision-Language-Action Pipeline](/docs/module4/intro)** - Complete VLA system
   - [Chapter 1: Whisper Speech Recognition](/module4/ch1-whisper)
   - [Chapter 2: LLM Cognitive Planning](/module4/ch2-llm-planning)
   - [Chapter 3: ROS 2 Actions Integration](/module4/ch3-ros2-actions)
@@ -206,7 +206,7 @@ Progress through the complete curriculum:
 
 ### 📖 References
 
-- **[Robotics Glossary & References](/glossary)** - Key terms and resources
+- **[Robotics Glossary & References](/docs/glossary)** - Key terms and resources
 
 ---
 
@@ -214,14 +214,14 @@ Progress through the complete curriculum:
 
 ### 👨‍💻 Path 1: Complete Beginner
 
-1. Setup your environment: [Digital Twin Workstation](/setup/setup-workstation)
-2. Start learning: [Module 1 - ROS 2 Fundamentals](/module1/intro)
+1. Setup your environment: [Digital Twin Workstation](/docs/setup/setup-workstation)
+2. Start learning: [Module 1 - ROS 2 Fundamentals](/docs/module1/intro)
 3. Follow sequentially: Module 2 → Module 3 → Module 4
 
 ### 🚀 Path 2: Experienced with ROS 2
 
-1. Review setup if needed: [Setup Guides](/setup/setup-intro)
-2. Jump to: [Module 2 - Digital Twin](/module2/intro)
+1. Review setup if needed: [Setup Guides](/docs/setup/setup-intro)
+2. Jump to: [Module 2 - Digital Twin](/docs/module2/intro)
 3. Continue: Module 3 → Module 4
 
 ### 🤖 Path 3: Ready for Hardware
