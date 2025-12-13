@@ -15,14 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://Shahb.github.io', // Update with actual GitHub username
+  url: 'https://shabi9999.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/hackthon_humanoid_book/', // Update with actual repo name
+  baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/',
 
   // GitHub pages deployment config.
-  organizationName: 'Shahb', // Update with actual GitHub username
-  projectName: 'hackthon_humanoid_book', // Update with actual repo name
+  organizationName: 'shabi9999',
+  projectName: 'Physical-AI-Humanoid-Robotics-Textbook',
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'warn',
 
