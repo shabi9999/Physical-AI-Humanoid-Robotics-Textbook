@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://Shahb.github.io', // Update with actual GitHub username
+  url: 'https://shabi9999.github.io', // Update with actual GitHub username
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/hackthon_humanoid_book/', // Update with actual repo name
+  baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/', // Update with actual repo name
 
   // GitHub pages deployment config.
-  organizationName: 'Shahb', // Update with actual GitHub username
-  projectName: 'hackthon_humanoid_book', // Update with actual repo name
-
+  organizationName: 'shabi9999', // Update with actual GitHub username
+  projectName: '/Physical-AI-Humanoid-Robotics-Textbook/', // Update with actual repo name
+  deploymentBranch: "gh-pages",
   onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -41,7 +41,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/docs', // Docs-only mode: serve docs at root
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/shabi9999/hackthon_humanoid_book/tree/main/my-website/', // Update with actual repo
+          editUrl: 'https://github.com/shabi9999/Physical-AI-Humanoid-Robotics-Textbook/tree/main/my-website/', // Update with actual repo
         },
         blog: false, // Disable blog for docs-only mode
         theme: {
@@ -77,7 +77,7 @@ const config: Config = {
           label: 'Course Content',
         },
         {
-          href: 'https://github.com/shabi9999/hackthon_humanoid_book',
+          href: 'https://github.com/shabi9999/Physical-AI-Humanoid-Robotics-Textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -104,7 +104,7 @@ const config: Config = {
             },
             {
               label: 'GitHub Repository',
-              href: 'https://github.com/shabi9999/hackthon_humanoid_book',
+              href: 'https://github.com/shabi9999/Physical-AI-Humanoid-Robotics-Textbook',
             },
           ],
         },
