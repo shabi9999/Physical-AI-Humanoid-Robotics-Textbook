@@ -1,0 +1,84 @@
+# === Node.js / TypeScript / Docusaurus ===
+node_modules/
+dist/
+build/
+.cache/
+.docusaurus/
+.cache-loader/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# === Python / FastAPI ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# === ROS 2 ===
+install/
+log/
+build/
+devel/
+*.bag
+*.bag.active
+
+# === Environment & Secrets ===
+.env
+.env.local
+.env.*.local
+.env.production
+*.pem
+*.key
+credentials.json
+
+# === IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === Docker ===
+*.dockerignore
+
+# === Project-Specific ===
+# Qdrant local storage (if running locally)
+qdrant_storage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Logs
+logs/
+*.log
+
+# Coverage reports
+coverage/
+.coverage
+htmlcov/
+
+# Specify history (keep in repo for traceability)
+# DO NOT ignore: history/, specs/, .specify/

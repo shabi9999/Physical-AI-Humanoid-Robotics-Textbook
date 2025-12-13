@@ -33,6 +33,21 @@
 
 [Gates determined based on constitution file]
 
+### Quality Assurance Principle (Principle V)
+
+This implementation MUST comply with the Quality Assurance & Link Integrity principle from the project constitution:
+
+- Zero broken links across all documentation and navigation
+- All routing paths must point to correct documentation locations
+- All sidebar links must resolve to valid endpoints
+- Build must compile with zero errors and zero warnings
+- Console must be clean with no JavaScript errors
+- All components must render correctly on mobile, tablet, and desktop
+- Lighthouse performance score ≥90, accessibility ≥95, SEO ≥95
+- All changes verified before deployment
+
+**Verification Required**: Before marking any plan section complete, ensure QA standards are achievable with the proposed technical approach.
+
 ## Project Structure
 
 ### Documentation (this feature)

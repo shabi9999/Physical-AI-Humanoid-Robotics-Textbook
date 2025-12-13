@@ -1,0 +1,596 @@
+openapi: 3.0.0
+info:
+  title: "VLA Humanoid Robotics Textbook RAG API"
+  description: "Retrieval-Augmented Generation API for context-aware chatbot over humanoid robotics textbook"
+  version: "1.0.0"
+  contact:
+    name: "Project Team"
+  license:
+    name: "MIT"
+
+servers:
+  - url: "http://localhost:8000"
+    description: "Local development server"
+  - url: "https://api.humanoid-textbook.dev"
+    description: "Production server"
+
+paths:
+  /api/chat:
+    post:
+      operationId: "postChat"
+      summary: "Submit query to RAG chatbot"
+      description: |
+        Accepts a user query, retrieves semantically similar chunks from the textbook,
+        constructs a context-aware prompt, calls the LLM, and returns a response with citations.
+
+        **Processing Pipeline**:
+        1. Embed query using OpenAI text-embedding-3-small
+        2. Search Qdrant vector store for top-k similar chunks
+        3. Fetch full metadata for retrieved chunks
+        4. Construct system prompt with retrieved context
+        5. Call GPT-3.5-turbo or GPT-4o with context
+        6. Format response with citations and source links
+        7. Store interaction in chat_history for user
+      tags:
+        - "Chat"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatRequest"
+            examples:
+              basicQuery:
+                summary: "Basic query without user context"
+                value:
+                  query: "What is ROS 2 and how do robots use it?"
+              queryWithUser:
+                summary: "Query with user ID for personalization"
+                value:
+                  query: "How do I set up VSLAM on a humanoid robot?"
+                  user_id: "user_12345"
+              advancedQuery:
+                summary: "Query with difficulty preference override"
+                value:
+                  query: "Explain sensor fusion in robot localization"
+                  user_id: "user_12345"
+                  context_override:
+                    difficulty_level: "Advanced"
+                    preferred_chapters:
+                      - "module3/chapter3-vslam"
+      responses:
+        "200":
+          description: "Successful chat response with citations"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChatResponse"
+              examples:
+                successResponse:
+                  summary: "Typical successful response"
+                  value:
+                    response: "ROS 2 (Robot Operating System 2) is a flexible middleware for robotics applications. It provides a publish-subscribe communication model where nodes exchange messages over topics..."
+                    chunks:
+                      - id: "chunk_001"
+                        section: "Chapter 1: ROS 2 Core Concepts"
+                        heading: "Publish-Subscribe Pattern"
+                        content: "The publish-subscribe model allows nodes to broadcast messages without knowing who receives them..."
+                        url_anchor: "/docs/module1/chapter1-ros2-core#publish-subscribe"
+                        chapter_id: "module1/chapter1"
+                        module: 1
+                        difficulty: "Beginner"
+                      - id: "chunk_002"
+                        section: "Chapter 1: ROS 2 Core Concepts"
+                        heading: "Nodes and Topics"
+                        content: "Every robot software component is a ROS 2 node. Nodes communicate by publishing and subscribing to topics..."
+                        url_anchor: "/docs/module1/chapter1-ros2-core#nodes-and-topics"
+                        chapter_id: "module1/chapter1"
+                        module: 1
+                        difficulty: "Beginner"
+                    citations:
+                      - text: "ROS 2 is a flexible middleware"
+                        chunk_id: "chunk_001"
+                        source_url: "/docs/module1/chapter1-ros2-core#publish-subscribe"
+                    response_tokens: 187
+                    query_tokens: 12
+                    retrieval_time_ms: 145
+                    total_time_ms: 1230
+        "400":
+          description: "Bad request (missing query, malformed JSON, etc.)"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                missingQuery:
+                  value:
+                    error: "query_required"
+                    message: "Query field is required"
+                    timestamp: "2025-12-09T14:30:00Z"
+        "401":
+          description: "Unauthorized (user_id not found, token invalid)"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: "Rate limited (too many requests)"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Internal server error (LLM failure, vector DB failure, etc.)"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/chunks:
+    get:
+      operationId: "getChunks"
+      summary: "Search and retrieve textbook chunks"
+      description: |
+        Retrieve textbook chunks with optional filtering by chapter, module, keywords, difficulty level.
+        Supports pagination and sorting by relevance or creation date.
+
+        **Use Cases**:
+        - Build a content browser UI
+        - Retrieve specific chapters for offline reading
+        - Find all beginner-level content for new learners
+        - Search by keywords (e.g., "sensor fusion", "motion planning")
+      tags:
+        - "Content"
+      parameters:
+        - name: "query"
+          in: "query"
+          description: "Text search query (semantic search via embeddings)"
+          required: false
+          schema:
+            type: "string"
+            example: "motion planning"
+        - name: "chapter"
+          in: "query"
+          description: "Filter by chapter ID (e.g., module1/chapter1)"
+          required: false
+          schema:
+            type: "string"
+            example: "module3/chapter4-nav2"
+        - name: "module"
+          in: "query"
+          description: "Filter by module number (1–4)"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 1
+            maximum: 4
+            example: 3
+        - name: "keyword"
+          in: "query"
+          description: "Filter by keyword (multiple allowed, comma-separated)"
+          required: false
+          schema:
+            type: "string"
+            example: "VSLAM,localization"
+        - name: "difficulty"
+          in: "query"
+          description: "Filter by difficulty level"
+          required: false
+          schema:
+            type: "string"
+            enum: ["Beginner", "Intermediate", "Advanced"]
+            example: "Intermediate"
+        - name: "page"
+          in: "query"
+          description: "Pagination page number (1-indexed)"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 1
+            default: 1
+        - name: "limit"
+          in: "query"
+          description: "Results per page (10–100)"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 10
+            maximum: 100
+            default: 20
+        - name: "sort"
+          in: "query"
+          description: "Sort order"
+          required: false
+          schema:
+            type: "string"
+            enum: ["relevance", "creation_date", "chapter_order"]
+            default: "relevance"
+      responses:
+        "200":
+          description: "Successful chunk retrieval"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChunksResponse"
+              examples:
+                byKeyword:
+                  summary: "Search by keyword 'VSLAM'"
+                  value:
+                    chunks:
+                      - id: "chunk_042"
+                        chapter_id: "module3/chapter3"
+                        module: 3
+                        section: "Chapter 3: Isaac ROS VSLAM"
+                        heading: "What is VSLAM?"
+                        content: "Visual SLAM (Simultaneous Localization and Mapping) is a technique that uses camera images to build a map of the environment while tracking the robot's position..."
+                        keywords: ["VSLAM", "localization", "mapping", "visual perception"]
+                        difficulty: "Intermediate"
+                        url_anchor: "/docs/module3/chapter3-vslam#what-is-vslam"
+                        token_count: 487
+                        created_at: "2025-12-08T10:30:00Z"
+                    pagination:
+                      page: 1
+                      limit: 20
+                      total_results: 15
+                      total_pages: 1
+        "400":
+          description: "Invalid filters or parameters"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: "Database or search error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /api/user/preferences:
+    put:
+      operationId: "updateUserPreferences"
+      summary: "Update user learning preferences"
+      description: |
+        Update user's personalization settings including difficulty level, preferred language,
+        UI theme, and bookmarked chapters. Changes take effect immediately for future queries.
+      tags:
+        - "User"
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserPreferencesRequest"
+            examples:
+              updateDifficulty:
+                summary: "Update difficulty level"
+                value:
+                  difficulty_level: "Advanced"
+              updateMultiple:
+                summary: "Update multiple preferences"
+                value:
+                  difficulty_level: "Intermediate"
+                  preferred_language: "en"
+                  ui_theme: "dark"
+                  bookmarked_chapters:
+                    - "module3/chapter3-vslam"
+                    - "module4/chapter3-ros2-actions"
+      responses:
+        "200":
+          description: "Preferences updated successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserPreferencesResponse"
+              examples:
+                updateSuccess:
+                  value:
+                    user_id: "user_12345"
+                    difficulty_level: "Advanced"
+                    preferred_language: "en"
+                    ui_theme: "dark"
+                    bookmarked_chapters:
+                      - "module3/chapter3-vslam"
+                      - "module4/chapter3-ros2-actions"
+                    updated_at: "2025-12-09T14:35:00Z"
+        "400":
+          description: "Invalid preference values"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: "Unauthorized (missing or invalid token)"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  schemas:
+    ChatRequest:
+      type: "object"
+      required:
+        - "query"
+      properties:
+        query:
+          type: "string"
+          description: "User's question or prompt"
+          minLength: 3
+          maxLength: 2000
+          example: "How do I set up VSLAM for humanoid robot localization?"
+        user_id:
+          type: "string"
+          description: "Optional: User ID for personalization and chat history tracking"
+          format: "uuid"
+          example: "user_12345"
+        context_override:
+          type: "object"
+          description: "Optional: Override user's default preferences for this query only"
+          properties:
+            difficulty_level:
+              type: "string"
+              enum: ["Beginner", "Intermediate", "Advanced"]
+              example: "Advanced"
+            preferred_chapters:
+              type: "array"
+              items:
+                type: "string"
+              description: "Constrain search to specific chapters"
+              example: ["module3/chapter3-vslam", "module3/chapter4-nav2"]
+            max_chunks:
+              type: "integer"
+              description: "Override default number of retrieved chunks"
+              minimum: 1
+              maximum: 10
+              example: 5
+
+    ChatResponse:
+      type: "object"
+      required:
+        - "response"
+        - "chunks"
+        - "citations"
+      properties:
+        response:
+          type: "string"
+          description: "LLM-generated response grounded in retrieved chunks"
+          example: "VSLAM is a technique that uses camera images to simultaneously localize the robot and build a map..."
+        chunks:
+          type: "array"
+          description: "Retrieved textbook chunks used to ground the response"
+          items:
+            $ref: "#/components/schemas/Chunk"
+        citations:
+          type: "array"
+          description: "List of citations mapping response text to source chunks"
+          items:
+            $ref: "#/components/schemas/Citation"
+        response_tokens:
+          type: "integer"
+          description: "Number of tokens in the LLM response"
+          example: 187
+        query_tokens:
+          type: "integer"
+          description: "Number of tokens in the user query"
+          example: 12
+        retrieval_time_ms:
+          type: "integer"
+          description: "Time spent retrieving chunks (ms)"
+          example: 145
+        total_time_ms:
+          type: "integer"
+          description: "Total request processing time (ms)"
+          example: 1230
+
+    Chunk:
+      type: "object"
+      required:
+        - "id"
+        - "chapter_id"
+        - "section"
+        - "content"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+          description: "Unique chunk identifier"
+          example: "chunk_001"
+        chapter_id:
+          type: "string"
+          description: "Reference to source chapter (e.g., module1/chapter1)"
+          example: "module3/chapter3-vslam"
+        module:
+          type: "integer"
+          minimum: 1
+          maximum: 4
+          description: "Module number (1–4)"
+          example: 3
+        section:
+          type: "string"
+          description: "Chapter section or heading this chunk belongs to"
+          example: "Chapter 3: Isaac ROS VSLAM — What is VSLAM?"
+        heading:
+          type: "string"
+          description: "Immediate heading containing this chunk"
+          example: "What is VSLAM?"
+        content:
+          type: "string"
+          description: "Full text of the chunk (400–800 tokens)"
+          example: "Visual SLAM (Simultaneous Localization and Mapping) is a technique that uses camera images..."
+        keywords:
+          type: "array"
+          items:
+            type: "string"
+          description: "Keywords extracted from chunk"
+          example: ["VSLAM", "localization", "mapping"]
+        difficulty:
+          type: "string"
+          enum: ["Beginner", "Intermediate", "Advanced"]
+          description: "Difficulty level of the chunk"
+          example: "Intermediate"
+        url_anchor:
+          type: "string"
+          description: "Direct link to chunk in website"
+          example: "/docs/module3/chapter3-vslam#what-is-vslam"
+        token_count:
+          type: "integer"
+          description: "Number of tokens in chunk"
+          example: 487
+        created_at:
+          type: "string"
+          format: "date-time"
+          description: "Chunk creation timestamp"
+          example: "2025-12-08T10:30:00Z"
+
+    Citation:
+      type: "object"
+      required:
+        - "text"
+        - "chunk_id"
+      properties:
+        text:
+          type: "string"
+          description: "Fragment of response text that is cited"
+          example: "VSLAM uses camera images to build a map"
+        chunk_id:
+          type: "string"
+          format: "uuid"
+          description: "ID of chunk that supports this citation"
+          example: "chunk_042"
+        source_url:
+          type: "string"
+          description: "URL to source in textbook"
+          example: "/docs/module3/chapter3-vslam#what-is-vslam"
+
+    ChunksResponse:
+      type: "object"
+      required:
+        - "chunks"
+        - "pagination"
+      properties:
+        chunks:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Chunk"
+        pagination:
+          type: "object"
+          required:
+            - "page"
+            - "limit"
+            - "total_results"
+            - "total_pages"
+          properties:
+            page:
+              type: "integer"
+              example: 1
+            limit:
+              type: "integer"
+              example: 20
+            total_results:
+              type: "integer"
+              example: 45
+            total_pages:
+              type: "integer"
+              example: 3
+
+    UserPreferencesRequest:
+      type: "object"
+      properties:
+        difficulty_level:
+          type: "string"
+          enum: ["Beginner", "Intermediate", "Advanced"]
+          description: "Preferred difficulty level for RAG results"
+          example: "Intermediate"
+        preferred_language:
+          type: "string"
+          enum: ["en", "es", "fr", "zh", "ja"]
+          description: "Preferred language (en = English, es = Spanish, etc.)"
+          example: "en"
+        ui_theme:
+          type: "string"
+          enum: ["light", "dark", "auto"]
+          description: "UI theme preference"
+          example: "dark"
+        bookmarked_chapters:
+          type: "array"
+          items:
+            type: "string"
+          description: "List of bookmarked chapter IDs"
+          example: ["module3/chapter3-vslam", "module4/chapter3-ros2-actions"]
+
+    UserPreferencesResponse:
+      type: "object"
+      required:
+        - "user_id"
+        - "updated_at"
+      properties:
+        user_id:
+          type: "string"
+          format: "uuid"
+          description: "User ID"
+          example: "user_12345"
+        difficulty_level:
+          type: "string"
+          enum: ["Beginner", "Intermediate", "Advanced"]
+          example: "Intermediate"
+        preferred_language:
+          type: "string"
+          enum: ["en", "es", "fr", "zh", "ja"]
+          example: "en"
+        ui_theme:
+          type: "string"
+          enum: ["light", "dark", "auto"]
+          example: "dark"
+        bookmarked_chapters:
+          type: "array"
+          items:
+            type: "string"
+          example: ["module3/chapter3-vslam"]
+        updated_at:
+          type: "string"
+          format: "date-time"
+          example: "2025-12-09T14:35:00Z"
+
+    ErrorResponse:
+      type: "object"
+      required:
+        - "error"
+        - "message"
+      properties:
+        error:
+          type: "string"
+          description: "Error code (machine-readable)"
+          example: "query_required"
+        message:
+          type: "string"
+          description: "Human-readable error message"
+          example: "Query field is required"
+        timestamp:
+          type: "string"
+          format: "date-time"
+          description: "Error timestamp"
+          example: "2025-12-09T14:30:00Z"
+        details:
+          type: "object"
+          description: "Optional: Additional error context"
+          example:
+            field: "query"
+            reason: "empty_string"
+
+  securitySchemes:
+    bearerAuth:
+      type: "http"
+      scheme: "bearer"
+      bearerFormat: "JWT"
+      description: "Bearer token for authenticated requests (JWT issued by auth endpoint)"
+
+tags:
+  - name: "Chat"
+    description: "RAG chatbot endpoints"
+  - name: "Content"
+    description: "Content retrieval and search"
+  - name: "User"
+    description: "User account and preferences"

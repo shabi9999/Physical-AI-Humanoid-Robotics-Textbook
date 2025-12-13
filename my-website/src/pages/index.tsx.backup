@@ -1,0 +1,181 @@
+import React from 'react';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
+
+function HomepageHeader() {
+  const {siteConfig} = useDocusaurusContext();
+
+  return (
+    <header className="bg-[#16a34a] text-white py-20 md:py-32 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
+        {/* Optional Badge */}
+        <div className="inline-block bg-white/15 border border-white/20 rounded-full px-5 py-2 mb-8">
+          <span className="text-sm font-medium">🎓 Industry-Grade Robotics Education</span>
+        </div>
+
+        {/* Main Title */}
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 tracking-tight">
+          Physical AI & Humanoid Robotics
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-xl md:text-3xl font-normal mb-5 opacity-95">
+          Comprehensive 13-Week Course for Industry Practitioners
+        </p>
+
+        {/* Description */}
+        <p className="text-base md:text-lg leading-relaxed mb-10 opacity-90 max-w-3xl">
+          Master ROS 2 architecture, digital twin simulation, NVIDIA Isaac Sim, and Vision-Language-Action models through hands-on, project-based learning
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            to="/intro"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-[#16a34a] font-semibold rounded-lg hover:opacity-95 hover:shadow-lg hover:no-underline transition-all"
+          >
+            Start Learning
+            <span>→</span>
+          </Link>
+          <a
+            href="https://github.com/shabi9999/hackthon_humanoid_book"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent text-white border-2 border-white/30 font-semibold rounded-lg hover:bg-white/10 hover:no-underline transition-all"
+          >
+            📄 View on GitHub
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function StatsSection() {
+  const stats = [
+    { icon: '📚', number: '4', label: 'MODULES' },
+    { icon: '📖', number: '20', label: 'CHAPTERS' },
+    { icon: '🎯', number: '56+', label: 'TOPICS' },
+    { icon: '📅', number: '13', label: 'WEEKS' },
+  ];
+
+  return (
+    <section className="bg-white py-12 border-b border-gray-200">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="text-5xl font-bold text-[#16a34a] font-mono">{stat.number}</div>
+              <div className="text-sm font-medium text-gray-500 uppercase tracking-wider mt-2">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function QuickLinksSidebar() {
+  const links = [
+    { title: 'Workstation Setup', href: '/docs/setup/workstation' },
+    { title: 'Edge Kit Setup', href: '/docs/setup/edge-kit' },
+    { title: 'Cloud Setup', href: '/docs/setup/cloud' },
+    { title: 'Glossary', href: '/docs/references/glossary' },
+    { title: 'Module 1: ROS 2', href: '/docs/module-1-ros2' },
+    { title: 'Module 2: Digital Twin', href: '/docs/module-2-digital-twin' },
+    { title: 'Module 3: Isaac Sim', href: '/docs/module-3-isaac' },
+    { title: 'Module 4: VLA & Humanoids', href: '/docs/module-4-vla-humanoids' },
+  ];
+
+  return (
+    <aside className="bg-gray-50 border border-gray-200 rounded-xl p-7 sticky top-20">
+      <h3 className="text-xl font-bold text-gray-900 mb-6">Quick Links</h3>
+      <ul className="space-y-3">
+        {links.map((link, index) => (
+          <li key={index}>
+            <a
+              href={link.href}
+              className="block text-[#059669] hover:text-[#047857] font-medium hover:underline hover:pl-1 transition-all"
+            >
+              {link.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  );
+}
+
+function RecentUpdates() {
+  const updates = [
+    {
+      date: '2025-11-29',
+      title: 'Textbook Structure Initialized',
+      description: 'Complete textbook structure with 4 modules and dashboard homepage is now live.'
+    },
+    {
+      date: '2025-11-29',
+      title: 'Setup Guides Available',
+      description: 'Hardware setup guides for Workstation, Edge Kit, and Cloud are now available.'
+    }
+  ];
+
+  return (
+    <section className="bg-gray-50 py-16 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Recent Updates</h2>
+        <div className="space-y-6">
+          {updates.map((update, index) => (
+            <div key={index} className="border-l-4 border-[#16a34a] pl-6 py-2">
+              <div className="text-sm text-gray-500 mb-1">{update.date}</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{update.title}</h3>
+              <p className="text-gray-600">{update.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function Home(): JSX.Element {
+  const {siteConfig} = useDocusaurusContext();
+
+  return (
+    <Layout
+      title={`${siteConfig.title}`}
+      description="Comprehensive 13-Week Course for Industry Practitioners - Master ROS 2, Digital Twins, NVIDIA Isaac Sim, and Vision-Language-Action Models"
+    >
+      <HomepageHeader />
+      <StatsSection />
+
+      <main className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 items-start">
+            {/* Main Content */}
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+                Course Modules
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-12 max-w-4xl">
+                A comprehensive 13-week learning path designed to take you from ROS 2 fundamentals to advanced vision-language-action models for humanoid robots
+              </p>
+
+              <HomepageFeatures />
+            </div>
+
+            {/* Sidebar */}
+            <QuickLinksSidebar />
+          </div>
+        </div>
+      </main>
+
+      <RecentUpdates />
+    </Layout>
+  );
+}

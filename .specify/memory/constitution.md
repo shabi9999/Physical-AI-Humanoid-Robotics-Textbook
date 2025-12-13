@@ -1,55 +1,83 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report:
+Version change: 1.0.0 → 1.1.0 (MINOR: New principle added for QA)
+List of modified principles:
+  - Added: V. Quality Assurance & Link Integrity (2025-12-10)
+Added sections:
+  - Quality Assurance Standards (2025-12-10)
+Removed sections: None
+Templates requiring updates:
+  - .specify/templates/plan-template.md ⚠ pending
+  - .specify/templates/spec-template.md ⚠ pending
+  - .specify/templates/tasks-template.md ⚠ pending
+  - .specify/templates/commands/*.md ⚠ pending
+Follow-up TODOs: None
+Rationale:
+  - New Principle V enforces QA standards from daily homepage fixes
+  - Zero broken links, correct routing paths are non-negotiable
+  - Formal Lighthouse score requirements added (≥90, ≥95, ≥95)
+  - MINOR bump justified: new principle adds to existing framework without removing or conflicting
+-->
+# AI-Driven Docusaurus Book + RAG Chatbot + Physical AI Robotics Capstone Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-driven development using Spec-Kit Plus
+All development adheres to Spec-Kit Plus methodologies, ensuring a structured approach from requirements to implementation.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Accurate, reproducible, runnable code
+Code must be precise, easily reproducible in various environments, and executable as intended, with clear instructions and minimal setup.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Clarity for beginner–intermediate AI/robotics learners
+All content and code must be accessible and understandable for learners at beginner to intermediate levels in AI and robotics, emphasizing clear explanations and practical examples.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Modular intelligence via Claude Code Subagents & Skills
+The system leverages Claude Code Subagents and Skills for modular intelligence, promoting reusability and specialized task handling.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Quality Assurance & Link Integrity
+All navigation links, routing paths, and component integration must be verified and correct. Sidebar links, module routes, and cross-references must point to accurate documentation locations. Zero broken links, zero console errors, and zero broken components are non-negotiable requirements before any deployment.
 
-### [PRINCIPLE_6_NAME]
+## Quality Assurance Standards
 
+- Zero broken links across all documentation and navigation
+- All routing paths must point to correct documentation locations
+- All sidebar links must resolve to valid endpoints
+- Build must compile with zero errors and zero warnings
+- Console must be clean with no JavaScript errors
+- All components must render correctly on mobile, tablet, and desktop
+- Lighthouse performance score ≥90, accessibility ≥95, SEO ≥95
+- All changes verified before deployment
 
-[PRINCIPLE__DESCRIPTION]
+## Book Standards
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- Docusaurus book with 15+ chapters
+- Each chapter: concepts, code, diagrams, labs, troubleshooting
+- Uses Spec-Kit Plus templates
+- Deployable to GitHub Pages
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## RAG Chatbot Standards
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- Answers only from book content
+- User-selected text override
+- Uses OpenAI Agents, FastAPI, Neon Postgres, Qdrant
+- Chunk size: 400–800 tokens
+- Must cite exact book location
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Bonus Features
+
+- BetterAuth signup + onboarding questionnaire
+- Personalized chapter content
+- Urdu translation toggle
+
+## Robotics Content Requirements
+
+- ROS 2 (nodes, topics, services, URDF)
+- Gazebo physics & sensors
+- Unity visualization
+- NVIDIA Isaac Sim + VSLAM + Nav2
+- VLA: Whisper, LLM planning, action execution
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All project activities, including design, development, and testing, must align with the principles outlined in this constitution. Amendments to this constitution require a documented proposal, review by project stakeholders, and approval by the project lead. Compliance reviews will be conducted periodically to ensure adherence.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2025-12-07 | **Last Amended**: 2025-12-10

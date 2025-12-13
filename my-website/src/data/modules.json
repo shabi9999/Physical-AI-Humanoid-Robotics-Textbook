@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Module 1: The Robotic Nervous System (ROS 2)",
+    "weeks": "Weeks 3-5",
+    "description": "Master ROS 2 architecture, communication patterns, and robot modeling. Build distributed robotic systems using nodes, topics, services, and actions.",
+    "link": "/docs/module1/intro",
+    "outcomes": [
+      "Explain the ROS 2 computation graph and its components",
+      "Create publishers, subscribers, and service clients using rclpy",
+      "Define robot structure using URDF and visualize in RViz2"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Module 2: Digital Twins - Simulation & Sensors",
+    "weeks": "Weeks 6-7",
+    "description": "Build digital twins for robotic systems using Gazebo and Unity. Simulate sensors, physics, and environments for testing before deploying to physical hardware.",
+    "link": "/docs/module2/intro",
+    "outcomes": [
+      "Create Gazebo simulation environments with physics and sensors",
+      "Integrate Unity for photorealistic sensor simulation",
+      "Test navigation and perception algorithms in simulation"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Module 3: NVIDIA Isaac - Perception & Navigation",
+    "weeks": "Weeks 8-10",
+    "description": "Leverage NVIDIA Isaac Sim for GPU-accelerated robotics. Implement VSLAM, Nav2 navigation stacks, and reinforcement learning for autonomous behaviors.",
+    "link": "/docs/module3/intro",
+    "outcomes": [
+      "Set up and configure NVIDIA Isaac Sim environments",
+      "Implement Visual SLAM for robot localization",
+      "Deploy Nav2 navigation stack for autonomous navigation"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Module 4: VLA & Humanoid Robotics",
+    "weeks": "Weeks 11-13",
+    "description": "Integrate Vision-Language-Action models with humanoid robots. Master kinematics, manipulation, and conversational AI for natural human-robot interaction.",
+    "link": "/docs/module4/intro",
+    "outcomes": [
+      "Calculate forward and inverse kinematics for humanoid robots",
+      "Implement manipulation primitives for pick-and-place tasks",
+      "Integrate conversational AI with robot action planning"
+    ]
+  }
+]

@@ -1,0 +1,236 @@
+name: Content Validation & Linting
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - '004-vla-pipeline'
+    paths:
+      - 'my-website/docs/**/*.md'
+      - 'tools/validate-*.py'
+      - 'tools/readability-*.py'
+      - '.github/workflows/lint-content.yml'
+
+  push:
+    branches:
+      - main
+      - dev
+
+  workflow_dispatch:
+
+jobs:
+  validate-content:
+    name: Validate Content (Readability, Links, Diagrams)
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run readability checker
+        id: readability
+        run: |
+          python tools/readability-check.py --all
+          echo "::notice title=Readability Check::See readability-report.json for detailed metrics"
+        continue-on-error: true
+
+      - name: Run link validator
+        id: links
+        run: |
+          python tools/validate-links.py --all
+          echo "::notice title=Link Validation::See link-validation-report.json for detailed results"
+        continue-on-error: true
+
+      - name: Run diagram validator
+        id: diagrams
+        run: |
+          python tools/validate-diagrams.py --all
+          echo "::notice title=Diagram Validation::See diagram-validation-report.json for detailed results"
+        continue-on-error: true
+
+      - name: Upload validation reports as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-reports-py${{ matrix.python-version }}
+          path: |
+            readability-report.json
+            link-validation-report.json
+            diagram-validation-report.json
+          retention-days: 30
+
+      - name: Comment validation results on PR
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+
+            let comment = '## 📋 Content Validation Results\n\n';
+
+            // Readability results
+            if (fs.existsSync('readability-report.json')) {
+              try {
+                const readability = JSON.parse(fs.readFileSync('readability-report.json', 'utf8'));
+                const summary = readability.summary;
+                comment += `### 📖 Readability Check\n`;
+                comment += `- Chapters analyzed: ${summary.total_chapters}\n`;
+                comment += `- Average FK Grade: ${summary.avg_flesch_kincaid.toFixed(1)}\n`;
+                comment += `- Total word count: ${summary.total_word_count.toLocaleString()}\n`;
+                comment += `- Chapters with issues: ${summary.chapters_with_issues}\n\n`;
+              } catch (e) {
+                comment += `### 📖 Readability Check\n- Error reading report\n\n`;
+              }
+            }
+
+            // Link validation results
+            if (fs.existsSync('link-validation-report.json')) {
+              try {
+                const links = JSON.parse(fs.readFileSync('link-validation-report.json', 'utf8'));
+                const summary = links.summary;
+                comment += `### 🔗 Link Validation\n`;
+                comment += `- Total links: ${summary.total_links}\n`;
+                comment += `- Valid: ${summary.valid_links}\n`;
+                comment += `- Broken: ${summary.broken_links}\n`;
+                comment += `- Warnings: ${summary.warnings}\n`;
+                if (summary.broken_links > 0) {
+                  comment += `\n⚠️ **Broken links detected**\n`;
+                }
+                comment += '\n';
+              } catch (e) {
+                comment += `### 🔗 Link Validation\n- Error reading report\n\n`;
+              }
+            }
+
+            // Diagram validation results
+            if (fs.existsSync('diagram-validation-report.json')) {
+              try {
+                const diagrams = JSON.parse(fs.readFileSync('diagram-validation-report.json', 'utf8'));
+                const summary = diagrams.summary;
+                comment += `### 📊 Diagram Validation\n`;
+                comment += `- Total diagrams: ${summary.total_diagrams}\n`;
+                comment += `- Mermaid: ${summary.total_diagrams - summary.total_ascii}\n`;
+                comment += `- ASCII art: ${summary.total_ascii || 0}\n`;
+                comment += `- Valid: ${summary.valid_diagrams}\n`;
+                comment += `- Invalid: ${summary.invalid_diagrams}\n`;
+                if (summary.invalid_diagrams > 0) {
+                  comment += `\n⚠️ **Invalid diagrams detected**\n`;
+                }
+              } catch (e) {
+                comment += `### 📊 Diagram Validation\n- Error reading report\n`;
+              }
+            }
+
+            comment += '\n---\n';
+            comment += '*Validation reports saved as artifacts for detailed review.*\n';
+
+            // Post comment
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Check for critical issues
+        run: |
+          set +e
+          python tools/readability-check.py --all
+          READABILITY_EXIT=$?
+
+          python tools/validate-links.py --all
+          LINKS_EXIT=$?
+
+          python tools/validate-diagrams.py --all
+          DIAGRAMS_EXIT=$?
+
+          if [ $LINKS_EXIT -ne 0 ]; then
+            echo "::error::Broken links detected"
+            exit 1
+          fi
+
+          if [ $DIAGRAMS_EXIT -ne 0 ]; then
+            echo "::error::Invalid diagrams detected"
+            exit 1
+          fi
+
+          if [ $READABILITY_EXIT -ne 0 ]; then
+            echo "::warning::High reading level detected in some chapters"
+          fi
+
+          exit 0
+        if: github.event_name == 'pull_request'
+
+  markdown-lint:
+    name: Markdown Linting (Optional)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run markdownlint
+        uses: nosborn/github-action-markdown-cli@v3.3.0
+        with:
+          files: my-website/docs
+          config_file: .markdownlint.json
+        continue-on-error: true
+
+  spellcheck:
+    name: Spellcheck Content (Optional)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run cSpell
+        uses: streetsidesoftware/cspell-action@v2
+        with:
+          files: 'my-website/docs/**/*.md'
+          config: cspell.json
+        continue-on-error: true
+
+  summary:
+    name: Validation Summary
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [validate-content]
+
+    steps:
+      - name: Generate summary
+        run: |
+          echo "## ✅ Content Validation Complete"
+          echo ""
+          echo "All validation checks have been executed."
+          echo "Review the artifacts and inline comments for detailed results."
+          echo ""
+          echo "**Next Steps:**"
+          echo "- Fix any broken links (critical)"
+          echo "- Fix any invalid diagrams (critical)"
+          echo "- Address readability issues for high-FK chapters"
+          echo ""
+          echo "**Documentation:**"
+          echo "- [Validation Tools](../../tools/)"
+          echo "- [Phase 3 Plan](../../specs/004-vla-pipeline/plan.md#phase-3)"
