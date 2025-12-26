@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://shabi9999.github.io', // Update with actual GitHub username
+  url: 'https://shabi99499.github.io/Physical-AI-Humanoid-Rob4otics-Textbook',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook/', // Update with actual repo name
